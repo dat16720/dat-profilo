@@ -28,7 +28,6 @@ export default function Home() {
       {/* Theme Background Overlay */}
       <ThemeBackground />
 
-      {/* Main Content Container */}
       <main className="relative z-10">
         <Navigation />
 

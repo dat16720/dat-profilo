@@ -9,7 +9,7 @@ export default function Footer() {
           <p>
             Built by DTD. The source code is available on{" "}
             <a
-              href="https://github.com"
+              href="https://github.com/dat16720"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
@@ -20,20 +20,12 @@ export default function Footer() {
           </p>
           <div className="flex gap-4 mt-4">
             <a
-              href="https://dangdat.dev"
+              href="https://datdt.io.vn"
               target="_blank"
               rel="noopener noreferrer"
               className="text-primary hover:underline"
             >
-              dangdat.dev
-            </a>
-            <a
-              href="https://dangdat.tech"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              dangdat.tech
+              datdt.io.vn
             </a>
           </div>
         </div>

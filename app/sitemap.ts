@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://dangtrong-dat.dev";
+  const baseUrl = "https://datdt.io.vn";
 
   return [
     {

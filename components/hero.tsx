@@ -1,6 +1,7 @@
 "use client";
 
 import { Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 export default function Hero() {
@@ -20,8 +21,15 @@ export default function Hero() {
         <div className="flex flex-col md:flex-row gap-8 items-start">
           {/* Profile Picture */}
           <div className="shrink-0 mx-auto md:mx-0">
-            <div className="w-32 h-32 rounded-full bg-linear-to-br from-primary/20 to-accent/20 border-2 border-border flex items-center justify-center">
-              <span className="text-5xl">👤</span>
+            <div className="w-32 h-32 rounded-full bg-linear-to-br from-primary/20 to-accent/20 border-2 border-border overflow-hidden relative">
+              <Image
+                src="/images/me.jpg"
+                alt="Đặng Trọng Đạt"
+                width={128}
+                height={128}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
           </div>
 
@@ -46,7 +54,7 @@ export default function Hero() {
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span>+84 866646200 / 0866646200</span>
+                <span>0866646200</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
@@ -54,12 +62,12 @@ export default function Hero() {
               </div>
               <div>
                 <a
-                  href="https://dangdat.dev"
+                  href="https://datdt.io.vn"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:underline"
                 >
-                  dangdat.dev
+                  datdt.io.vn
                 </a>
               </div>
               <div className="text-foreground/50 text-xs">
@@ -70,7 +78,7 @@ export default function Hero() {
             {/* Social Links */}
             <div className="flex gap-4 pt-2">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/%C4%91%E1%BA%A1t-%C4%91%E1%BA%B7ng-58ab07307/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
@@ -79,7 +87,7 @@ export default function Hero() {
                 <span>LinkedIn</span>
               </a>
               <a
-                href="https://github.com"
+                href="https://github.com/dat16720"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"

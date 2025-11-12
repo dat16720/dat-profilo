@@ -10,11 +10,11 @@ import "./globals.css";
 const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dangtrong-dat.dev"),
+  metadataBase: new URL("https://datdt.io.vn"),
   title:
     "Đặng Trọng Đạt - Frontend Engineer & UI/UX Designer | React & Next.js Expert",
   description:
-    "Frontend Engineer Leader with 4+ years of React & Next.js expertise. Specialized in UI/UX design, component architecture, and performance optimization. Available for projects. Contact: dangdat.dev@gmail.com",
+    "Frontend Engineer Leader with 4+ years of React & Next.js expertise. Specialized in UI/UX design, component architecture, and performance optimization. Available for projects. Contact: dangdattd167@gmail.com",
   keywords: [
     "Đặng Trọng Đạt",
     "Dang Trong Dat",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     "Web Development",
     "Vietnam",
     "Hanoi",
-    "dangdat.dev@gmail.com",
+    "dangdattd167@gmail.com",
     "Senior Frontend Engineer",
     "Galaxy Education JSC",
   ].join(", "),
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
       "Frontend Engineer with 4+ years specializing in React, Next.js, and modern web technologies.",
     type: "website",
     locale: "vi_VN",
-    url: "https://dangtrong-dat.dev",
+    url: "https://datdt.io.vn",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/images/natra.jpg",
         width: 1200,
         height: 630,
         alt: "Đặng Trọng Đạt Portfolio",
@@ -59,10 +59,10 @@ export const metadata: Metadata = {
     "max-snippet": -1,
   },
   alternates: {
-    canonical: "https://dangtrong-dat.dev",
+    canonical: "https://datdt.io.vn",
     languages: {
-      "vi-VN": "https://dangtrong-dat.dev/vi",
-      "en-US": "https://dangtrong-dat.dev/en",
+      "vi-VN": "https://datdt.io.vn/vi",
+      "en-US": "https://datdt.io.vn/en",
     },
   },
   manifest: "/manifest.json",
@@ -100,14 +100,14 @@ export default function RootLayout({
               "@type": "Person",
               name: "Đặng Trọng Đạt",
               alternateName: "Dang Trong Dat",
-              url: "https://dangtrong-dat.dev",
+              url: "https://datdt.io.vn",
               jobTitle: "Senior Frontend Engineer",
               worksFor: {
                 "@type": "Organization",
                 name: "Galaxy Education JSC",
               },
-              email: "dangdat.dev@gmail.com",
-              telephone: "+84 XXX XXX XXX",
+              email: "dangdattd167@gmail.com",
+              telephone: "+84 866646200",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Hanoi",
@@ -117,9 +117,9 @@ export default function RootLayout({
               description:
                 "Frontend Engineer & UI/UX Designer with 4+ years React & Next.js expertise. Specialized in building high-performance web applications.",
               sameAs: [
-                "https://github.com",
-                "https://linkedin.com",
-                "https://dangdat.dev",
+                "https://github.com/dat16720",
+                "https://www.linkedin.com/in/%C4%91%E1%BA%A1t-%C4%91%E1%BA%B7ng-58ab07307/",
+                "https://datdt.io.vn",
               ],
               knowsAbout: [
                 "React",
@@ -139,7 +139,7 @@ export default function RootLayout({
         />
         {/* Additional SEO Meta Tags */}
         <meta name="author" content="Đặng Trọng Đạt" />
-        <meta name="contact" content="dangdat.dev@gmail.com" />
+        <meta name="contact" content="dangdattd167@gmail.com" />
         <meta name="geo.region" content="VN-HN" />
         <meta name="geo.placename" content="Hanoi, Vietnam" />
         <meta name="language" content="Vietnamese, English" />

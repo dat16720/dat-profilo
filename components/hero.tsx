@@ -8,20 +8,39 @@ export default function Hero() {
   const { t } = useTranslation();
 
   return (
-    <section className="pt-24 pb-12">
+    <section className="pt-24 pb-12 relative overflow-hidden">
       <div className="mx-auto max-w-5xl px-6">
-        {/* Logo lớn trên cùng */}
-        <div className="text-center mb-8">
-          <div className="inline-block text-8xl md:text-9xl font-bold text-foreground/20 select-none">
-            ĐT
+        {/* Logo lớn trên cùng với hiệu ứng */}
+        <div className="text-center mb-12 relative">
+          <div className="inline-block text-8xl md:text-9xl font-bold select-none relative">
+            <span 
+              className="absolute inset-0 blur-2xl opacity-50 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
+              style={{ zIndex: -1 }}
+            >
+              ĐT
+            </span>
+            <span className="relative gradient-text animate-gradient-shift">
+              ĐT
+            </span>
           </div>
+          {/* Decorative lines */}
+          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 w-full max-w-md h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
         </div>
 
         {/* Profile Picture & Info */}
         <div className="flex flex-col md:flex-row gap-8 items-start">
           {/* Profile Picture */}
-          <div className="shrink-0 mx-auto md:mx-0">
-            <div className="w-32 h-32 rounded-full bg-linear-to-br from-primary/20 to-accent/20 border-2 border-border overflow-hidden relative">
+          <div className="shrink-0 mx-auto md:mx-0 relative group">
+            {/* Glowing ring */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-accent to-primary opacity-50 blur-xl group-hover:opacity-75 transition-opacity duration-500 animate-pulse-glow" />
+            
+            {/* Rotating border */}
+            <div className="absolute inset-0 rounded-full" style={{
+              background: 'conic-gradient(from 0deg, transparent 0%, rgba(var(--primary), 0.5) 25%, transparent 50%, rgba(var(--accent), 0.5) 75%, transparent 100%)',
+              animation: 'rotate-slow 8s linear infinite',
+            }} />
+            
+            <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-300 group-hover:scale-105 neon-box">
               <Image
                 src="/images/me.jpg"
                 alt="Đặng Trọng Đạt"
@@ -34,66 +53,72 @@ export default function Hero() {
           </div>
 
           {/* Info Column */}
-          <div className="flex-1 space-y-4">
+          <div className="flex-1 space-y-4 animate-fade-in-up">
             {/* Name */}
-            <div>
-              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-1">
-                {t("hero.name")}
+            <div className="relative">
+              <h1 className="text-3xl md:text-4xl font-bold mb-1 relative inline-block">
+                <span className="relative z-10 gradient-text">
+                  {t("hero.name")}
+                </span>
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-lg opacity-50 group-hover:opacity-100 transition-opacity" />
               </h1>
-              <p className="text-lg text-foreground/60">{t("hero.subtitle")}</p>
+              <p className="text-lg text-foreground/60 font-medium tracking-wide">{t("hero.subtitle")}</p>
             </div>
 
             {/* Contact Info - Vertical List */}
-            <div className="space-y-2 text-sm text-foreground/70">
-              <div className="flex items-center gap-2">
-                <span>{t("hero.title")}</span>
+            <div className="space-y-2 text-sm">
+              <div className="flex items-center gap-2 group hover:translate-x-1 transition-transform">
+                <span className="text-primary/70 font-mono">▶</span>
+                <span className="text-foreground/80 group-hover:text-foreground transition-colors">{t("hero.title")}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                <span>{t("hero.location")}</span>
+              <div className="flex items-center gap-2 group hover:translate-x-1 transition-transform">
+                <MapPin className="w-4 h-4 text-primary/70" />
+                <span className="text-foreground/80 group-hover:text-foreground transition-colors">{t("hero.location")}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span>0866646200</span>
+              <div className="flex items-center gap-2 group hover:translate-x-1 transition-transform">
+                <Phone className="w-4 h-4 text-primary/70" />
+                <span className="text-foreground/80 group-hover:text-foreground transition-colors">0866646200</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span>dangdattd167@gmail.com</span>
+              <div className="flex items-center gap-2 group hover:translate-x-1 transition-transform">
+                <Mail className="w-4 h-4 text-primary/70" />
+                <span className="text-foreground/80 group-hover:text-foreground transition-colors">dangdattd167@gmail.com</span>
               </div>
-              <div>
+              <div className="group hover:translate-x-1 transition-transform">
                 <a
                   href="https://datdt.io.vn"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline"
+                  className="text-primary hover:text-accent transition-colors font-mono relative inline-block"
                 >
-                  datdt.io.vn
+                  <span className="relative z-10">datdt.io.vn</span>
+                  <span className="absolute inset-0 bg-primary/10 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
                 </a>
               </div>
-              <div className="text-foreground/50 text-xs">
+              <div className="text-foreground/50 text-xs font-mono mt-4 px-3 py-1 bg-primary/5 border border-primary/20 rounded inline-block">
+                <span className="inline-block w-2 h-2 bg-primary rounded-full animate-pulse mr-2" />
                 coding 12 mins today
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-4 pt-2">
+            <div className="flex gap-3 pt-4">
               <a
                 href="https://www.linkedin.com/in/%C4%91%E1%BA%A1t-%C4%91%E1%BA%B7ng-58ab07307/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
+                className="group relative flex items-center gap-2 px-4 py-2 text-sm neon-box rounded-lg hover:scale-105 transition-all duration-300"
               >
-                <Linkedin className="w-4 h-4" />
-                <span>LinkedIn</span>
+                <Linkedin className="w-4 h-4 text-primary group-hover:text-accent transition-colors" />
+                <span className="font-medium text-foreground/80 group-hover:text-foreground transition-colors">LinkedIn</span>
               </a>
               <a
                 href="https://github.com/dat16720"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-sm text-foreground/70 hover:text-foreground transition-colors"
+                className="group relative flex items-center gap-2 px-4 py-2 text-sm neon-box rounded-lg hover:scale-105 transition-all duration-300"
               >
-                <Github className="w-4 h-4" />
-                <span>GitHub</span>
+                <Github className="w-4 h-4 text-primary group-hover:text-accent transition-colors" />
+                <span className="font-medium text-foreground/80 group-hover:text-foreground transition-colors">GitHub</span>
               </a>
             </div>
           </div>

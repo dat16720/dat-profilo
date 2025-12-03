@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Certs() {
   const [showAll, setShowAll] = useState(false);
+  const { t } = useTranslation();
 
   const allCerts = [
     {
@@ -34,7 +36,7 @@ export default function Certs() {
     <section id="certs" className="py-12 border-t border-border">
       <div className="mx-auto max-w-5xl px-6">
         <h2 className="text-2xl font-bold text-foreground mb-6">
-          Certs ({allCerts.length})
+          {t("certs.title")} ({allCerts.length})
         </h2>
         <div className="space-y-4">
           {displayedCerts.map((cert, idx) => (
@@ -52,7 +54,7 @@ export default function Certs() {
             onClick={() => setShowAll(!showAll)}
             className="mt-6 text-sm text-primary hover:underline"
           >
-            {showAll ? "Show Less" : "Show More"}
+            {showAll ? t("certs.showLess") : t("certs.showMore")}
           </button>
         )}
       </div>

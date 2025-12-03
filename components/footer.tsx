@@ -1,13 +1,17 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
+
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="py-12 border-t border-border">
       <div className="mx-auto max-w-5xl px-6">
         <div className="space-y-2 text-sm text-foreground/60">
-          <p>Inspired by tailwindcss.com.</p>
+          <p>{t("footer.inspired")}</p>
           <p>
-            Built by DTD. The source code is available on{" "}
+            {t("footer.built")}{" "}
             <a
               href="https://github.com/dat16720"
               target="_blank"

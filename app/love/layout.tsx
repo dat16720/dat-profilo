@@ -1,3 +1,4 @@
+import LoveHeader from "@/components/love-header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -29,5 +30,13 @@ export default function LoveLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return (
+    <>
+      {/* Header */}
+      <LoveHeader />
+
+      {/* Content */}
+      {children}
+    </>
+  );
 }

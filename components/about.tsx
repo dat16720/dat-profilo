@@ -9,93 +9,105 @@ export default function About() {
     vi: {
       title: "Về Tôi",
       subtitle:
-        "Senior Frontend Engineer với niềm đam mê tạo ra trải nghiệm web xuất sắc",
+        "Frontend Developer với niềm đam mê phát triển và bảo trì phần mềm",
       intro:
-        "4+ năm kinh nghiệm phát triển ứng dụng web quy mô lớn với React & Next.js. Lead team 5 developers, mentor junior devs, và xây dựng kiến trúc Frontend cho các sản phẩm phục vụ 100,000+ users.",
+        "Làm việc như một Software Engineer, áp dụng kiến thức trong lĩnh vực testing và maintenance để đáp ứng nhu cầu cụ thể của mọi người. Mong muốn làm việc trong một đội ngũ gồm những cá nhân có động lực, cùng hướng tới sự phát triển của công ty và các mục tiêu của nó. Khao khát học hỏi từ các chuyên gia có kinh nghiệm và các dự án trong công ty. Nâng cao kỹ năng tư duy phản biện, mở rộng kiến thức và phát triển đạo đức làm việc mạnh mẽ để trở thành Techlead trong tương lai gần.",
       highlights: [
         {
           icon: "🎯",
-          title: "Technical Excellence",
+          title: "Kỹ năng kỹ thuật",
           description:
-            "Chuyên sâu về React ecosystem, performance optimization, và modern web architecture. Giảm load time trung bình 60% cho các dự án.",
+            "Có 3 năm kinh nghiệm trong Frontend development. Thành thạo JavaScript, TypeScript, HTML5, CSS3. Có kiến thức và kinh nghiệm với ReactJS, NextJs, Redux, NodeJs, Express.",
+        },
+        {
+          icon: "⚡",
+          title: "Tối ưu hiệu suất",
+          description:
+            "Có kiến thức về tối ưu hiệu suất code. Làm việc với các công nghệ như Docker, Socket IO. Quen thuộc với các công cụ mã nguồn mở như Git, Jira, Tanstack query, Zustand.",
         },
         {
           icon: "👥",
-          title: "Leadership & Mentorship",
+          title: "Làm việc nhóm",
           description:
-            "Lead & mentor team 5 developers, conduct code reviews, và xây dựng best practices. 3 junior devs đã thăng tiến lên mid-level.",
-        },
-        {
-          icon: "📈",
-          title: "Business Impact",
-          description:
-            "Deliver các tính năng tăng conversion rate 25%, giảm bounce rate 40%, và improve user satisfaction score lên 4.8/5.",
+            "Có tinh thần làm việc nhóm tốt và trách nhiệm cao. Có khả năng làm việc trong môi trường Agile. Có khả năng đọc và viết tài liệu tiếng Anh.",
         },
       ],
       expertise: [
-        "React & Next.js Architecture",
-        "Performance Optimization",
-        "Design Systems",
-        "Team Leadership",
-        "Code Review & Mentoring",
-        "CI/CD & Testing",
+        "React & Next.js",
+        "JavaScript & TypeScript",
+        "Node.js & Express",
+        "MongoDB",
+        "Docker & Socket IO",
+        "UI Libraries (Ant Design, Bootstrap, Material-UI, Tailwind, Shadcn)",
       ],
       stats: [
-        { label: "Năm kinh nghiệm", value: "4+", icon: "💼" },
-        { label: "Dự án thành công", value: "50+", icon: "🚀" },
-        { label: "Team members", value: "5", icon: "👥" },
-        { label: "Users impacted", value: "100K+", icon: "👤" },
+        { label: "Năm kinh nghiệm", value: "3", icon: "💼" },
+        { label: "Dự án đã làm", value: "6+", icon: "🚀" },
+        { label: "Công ty đã làm việc", value: "3", icon: "👥" },
+        { label: "Kỹ năng chính", value: "10+", icon: "⚡" },
       ],
+      education: {
+        title: "Học vấn",
+        institution: "Học viện Kỹ thuật Mật mã - KMA",
+        major: "An toàn thông tin",
+        period: "2018 - 2023",
+      },
     },
     en: {
       title: "About Me",
       subtitle:
-        "Senior Frontend Engineer passionate about creating exceptional web experiences",
+        "Frontend Developer passionate about developing and maintaining software",
       intro:
-        "4+ years experience developing large-scale web applications with React & Next.js. Lead team of 5 developers, mentor juniors, and build Frontend architecture for products serving 100,000+ users.",
+        "To work as a Software Engineer applying my knowledge in the field of testing, and maintenance to cater to the specific needs of the people. I wish to work in a team of motivated individuals who wish to work towards the advancement of the company and its goals. Desire to learn from experienced professionals and projects within the company. Enhance critical thinking skills, expand knowledge, and develop a strong work ethic to become a Techlead in the near future.",
       highlights: [
         {
           icon: "🎯",
-          title: "Technical Excellence",
+          title: "Technical Skills",
           description:
-            "Deep expertise in React ecosystem, performance optimization, and modern web architecture. Reduced average load time by 60% across projects.",
+            "Have 3 years of experience in Frontend development. Proficient in JavaScript, TypeScript, HTML5, CSS3. Have knowledge and experience with ReactJS, NextJs, Redux, NodeJs, Express.",
+        },
+        {
+          icon: "⚡",
+          title: "Performance Optimization",
+          description:
+            "Have knowledge with optimized performance code. Work with technologies like Docker, Socket IO. Familiarity with open source tools & frameworks like Git, Jira, Tanstack query, Zustand.",
         },
         {
           icon: "👥",
-          title: "Leadership & Mentorship",
+          title: "Team Collaboration",
           description:
-            "Lead & mentor team of 5 developers, conduct code reviews, and establish best practices. 3 juniors promoted to mid-level.",
-        },
-        {
-          icon: "📈",
-          title: "Business Impact",
-          description:
-            "Delivered features that increased conversion rate by 25%, reduced bounce rate by 40%, and improved user satisfaction to 4.8/5.",
+            "Have good team working spirit and high responsibility. The ability of demonstrated, hands-on development experience within an Agile environment. Have ability to read and write with English documents.",
         },
       ],
       expertise: [
-        "React & Next.js Architecture",
-        "Performance Optimization",
-        "Design Systems",
-        "Team Leadership",
-        "Code Review & Mentoring",
-        "CI/CD & Testing",
+        "React & Next.js",
+        "JavaScript & TypeScript",
+        "Node.js & Express",
+        "MongoDB",
+        "Docker & Socket IO",
+        "UI Libraries (Ant Design, Bootstrap, Material-UI, Tailwind, Shadcn)",
       ],
       stats: [
-        { label: "Years Experience", value: "4+", icon: "💼" },
-        { label: "Projects Delivered", value: "50+", icon: "🚀" },
-        { label: "Team Members", value: "5", icon: "👥" },
-        { label: "Users Impacted", value: "100K+", icon: "👤" },
+        { label: "Years Experience", value: "3", icon: "💼" },
+        { label: "Projects Completed", value: "6+", icon: "🚀" },
+        { label: "Companies Worked", value: "3", icon: "👥" },
+        { label: "Core Skills", value: "10+", icon: "⚡" },
       ],
+      education: {
+        title: "Education",
+        institution: "Academy of Cryptography Techniques - KMA",
+        major: "Information Security",
+        period: "2018 - 2023",
+      },
     },
   };
 
   const text = content[i18n.language === "vi" ? "vi" : "en"];
 
   return (
-    <section id="about" className="py-12 border-t border-border">
+    <section id="about" className="py-16 border-t border-primary/10 relative">
       <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-2xl font-bold text-foreground mb-6">
+        <h2 className="text-3xl font-bold mb-8 gradient-text">
           {text.title}
         </h2>
 
@@ -111,13 +123,13 @@ export default function About() {
           {text.stats.map((stat, idx) => (
             <div
               key={idx}
-              className="text-center p-4 border border-border rounded-lg hover:border-primary/50 transition-colors"
+              className="text-center p-4 neon-box rounded-lg hover:scale-105 transition-all duration-300 group"
             >
-              <div className="text-2xl mb-2">{stat.icon}</div>
-              <div className="text-2xl font-bold text-primary mb-1">
+              <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">{stat.icon}</div>
+              <div className="text-2xl font-bold gradient-text mb-1">
                 {stat.value}
               </div>
-              <div className="text-xs text-foreground/70">{stat.label}</div>
+              <div className="text-xs text-foreground/70 font-medium">{stat.label}</div>
             </div>
           ))}
         </div>
@@ -127,12 +139,12 @@ export default function About() {
           {text.highlights.map((highlight, idx) => (
             <div
               key={idx}
-              className="p-4 border border-border rounded-lg hover:border-primary/50 transition-colors"
+              className="p-5 neon-box rounded-lg hover:scale-[1.02] transition-all duration-300 group"
             >
-              <div className="flex items-start gap-3">
-                <span className="text-2xl">{highlight.icon}</span>
+              <div className="flex items-start gap-4">
+                <span className="text-3xl group-hover:scale-110 transition-transform">{highlight.icon}</span>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">
+                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-2">
                     {highlight.title}
                   </h3>
                   <p className="text-sm text-foreground/70 leading-relaxed">
@@ -145,17 +157,39 @@ export default function About() {
         </div>
 
         {/* Core Expertise */}
-        <div>
-          <h3 className="font-semibold text-foreground mb-3">Core Expertise</h3>
-          <div className="flex flex-wrap gap-2">
+        <div className="mb-8">
+          <h3 className="font-semibold text-foreground mb-4 text-lg">Core Expertise</h3>
+          <div className="flex flex-wrap gap-3">
             {text.expertise.map((skill, idx) => (
               <span
                 key={idx}
-                className="px-3 py-1 text-sm border border-border rounded bg-card hover:border-primary/50 hover:bg-primary/5 transition-colors"
+                className="px-4 py-2 text-sm font-medium neon-box rounded-lg hover:scale-105 transition-all duration-300 cursor-pointer"
               >
                 {skill}
               </span>
             ))}
+          </div>
+        </div>
+
+        {/* Education */}
+        <div className="p-5 neon-box rounded-lg hover:scale-[1.02] transition-all duration-300 group">
+          <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors mb-4 text-lg">
+            {text.education.title}
+          </h3>
+          <div className="space-y-2">
+            <div className="flex items-start justify-between">
+              <div>
+                <h4 className="font-semibold text-foreground">
+                  {text.education.institution}
+                </h4>
+                <p className="text-sm text-foreground/70">
+                  {text.education.major}
+                </p>
+              </div>
+              <p className="text-xs text-foreground/50 font-mono">
+                {text.education.period}
+              </p>
+            </div>
           </div>
         </div>
       </div>

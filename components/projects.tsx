@@ -2,66 +2,30 @@
 
 import { ExternalLink, Github } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Projects() {
   const [, setHoveredIndex] = useState<number | null>(null);
   const [showAll, setShowAll] = useState(false);
+  const { t } = useTranslation();
 
-  const allProjects = [
-    {
-      name: "Enterprise CRM Platform",
-      description:
-        "Hệ thống CRM toàn diện quản lý 10,000+ khách hàng, tích hợp email marketing, sales pipeline và analytics dashboard. Real-time collaboration với WebSocket.",
-      technologies: ["Next.js 14", "TypeScript", "PostgreSQL", "Redis"],
-      highlight: "10K+ Users",
-      metrics: "98/100 Performance • 60% faster load",
-      icon: "💼",
-    },
-    {
-      name: "Social Network Platform",
-      description:
-        "Mạng xã hội với newsfeed real-time, messaging system, notification engine. Xử lý 100K+ posts/day, support image/video upload, like, comment, share.",
-      technologies: ["React 18", "Node.js", "MongoDB", "AWS S3"],
-      highlight: "100K+ Posts/day",
-      metrics: "Real-time updates • Infinite scroll",
-      icon: "🌐",
-    },
-    {
-      name: "E-Learning Platform",
-      description:
-        "Nền tảng học tập online với video streaming, interactive quiz, progress tracking, certificate system. Phục vụ 100,000+ học viên, 5000+ courses.",
-      technologies: ["Next.js", "GraphQL", "PostgreSQL", "AWS"],
-      highlight: "100K+ Students",
-      metrics: "WCAG 2.1 AA • Mobile-first",
-      icon: "📚",
-    },
-    {
-      name: "E-Commerce Marketplace",
-      description:
-        "Sàn thương mại điện tử với product catalog, shopping cart, payment gateway (Stripe, PayPal), order tracking. Xử lý 50,000+ đơn hàng/tháng.",
-      technologies: ["React", "Redux", "Stripe", "Firebase"],
-      highlight: "50K+ Orders/month",
-      metrics: "Top 3 Google • SEO optimized",
-      icon: "🛒",
-    },
-    {
-      name: "Job Portal Platform",
-      description:
-        "Nền tảng tìm việc như TopCV với job posting, CV builder, applicant tracking system, matching algorithm. 10,000+ jobs, 50,000+ CVs.",
-      technologies: ["Next.js", "TypeScript", "Tailwind", "Supabase"],
-      highlight: "50K+ CVs",
-      metrics: "AI-powered matching • PDF export",
-      icon: "💼",
-    },
-  ];
+  const allProjects = t("projects.items", { returnObjects: true }) as Array<{
+    name: string;
+    description: string;
+    technologies: string[];
+    highlight: string;
+    metrics: string;
+    icon: string;
+  }>;
 
   const displayedProjects = showAll ? allProjects : allProjects.slice(0, 2);
 
   return (
-    <section id="projects" className="py-12 border-t border-border">
+    <section id="projects" className="py-16 border-t border-primary/10">
       <div className="mx-auto max-w-5xl px-6">
-        <h2 className="text-2xl font-bold text-foreground mb-6">
-          Projects ({allProjects.length})
+        <h2 className="text-3xl font-bold mb-8">
+          <span className="gradient-text">{t("projects.title")}</span>
+          <span className="text-foreground/50 text-2xl ml-2">({allProjects.length})</span>
         </h2>
         <div className="space-y-6">
           {displayedProjects.map((project, idx) => (
@@ -75,19 +39,19 @@ export default function Projects() {
                 setHoveredIndex(null);
                 e.currentTarget.style.transform = "translateY(0)";
               }}
-              className="group space-y-3 p-4 border border-border rounded-lg hover:border-primary/50 transition-all duration-300"
+              className="group space-y-4 p-6 neon-box rounded-lg hover:scale-[1.02] transition-all duration-300"
               style={{
                 transition: "all 300ms ease",
                 transform: "translateY(0)",
               }}
             >
               {/* Icon & Title */}
-              <div className="flex items-start gap-3">
-                <div className="text-4xl group-hover:scale-110 group-hover:rotate-6 transition-all">
+              <div className="flex items-start gap-4">
+                <div className="text-5xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
                   {project.icon}
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-lg">
                     {project.name}
                   </h3>
                   <div className="flex items-center gap-2 mt-1">
@@ -117,20 +81,23 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="flex gap-3 pt-2 border-t border-border/30 group-hover:border-primary/30 transition-colors">
+              <div className="flex gap-3 pt-3 border-t border-primary/10 group-hover:border-primary/30 transition-colors">
                 <a
                   href="#"
-                  className="flex-1 px-4 py-2 bg-linear-to-r from-primary to-accent text-primary-foreground hover:shadow-lg hover:shadow-primary/40 rounded-lg transition-all flex items-center justify-center gap-2 font-semibold text-sm hover:scale-105"
+                  className="flex-1 px-4 py-2.5 bg-gradient-to-r from-primary to-accent text-primary-foreground hover:shadow-xl hover:shadow-primary/50 rounded-lg transition-all flex items-center justify-center gap-2 font-bold text-sm hover:scale-110 relative overflow-hidden group/btn"
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  Live Demo
+                  <span className="relative z-10 flex items-center gap-2">
+                    <ExternalLink className="w-4 h-4" />
+                    {t("projects.liveDemo")}
+                  </span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent to-primary opacity-0 group-hover/btn:opacity-100 transition-opacity" />
                 </a>
                 <a
                   href="#"
-                  className="flex-1 px-4 py-2 bg-foreground/5 text-foreground hover:bg-foreground/10 border border-border hover:border-primary/50 hover:shadow-lg hover:shadow-primary/20 rounded-lg transition-all flex items-center justify-center gap-2 font-semibold text-sm hover:scale-105"
+                  className="flex-1 px-4 py-2.5 neon-box rounded-lg transition-all flex items-center justify-center gap-2 font-bold text-sm hover:scale-110"
                 >
                   <Github className="w-4 h-4" />
-                  Code
+                  {t("projects.code")}
                 </a>
               </div>
             </div>
@@ -141,7 +108,7 @@ export default function Projects() {
             onClick={() => setShowAll(!showAll)}
             className="mt-6 text-sm text-primary hover:underline"
           >
-            {showAll ? "Show Less" : "Show More"}
+            {showAll ? t("projects.showLess") : t("projects.showMore")}
           </button>
         )}
       </div>

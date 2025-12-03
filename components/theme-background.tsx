@@ -1,61 +1,72 @@
-"use client"
+"use client";
 
-import { useThemeColor } from "@/lib/theme/theme-context"
-import { themeColors } from "@/lib/theme/theme-colors"
-import { useTheme } from "next-themes"
-import { useEffect, useState } from "react"
+import { Effects } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { useTheme } from "next-themes";
+import { Particles } from "./Particles";
+import { VignetteShader } from "./shaders/vignetteShader";
 
 export default function ThemeBackground() {
-  const { themeColor } = useThemeColor()
-  const { theme } = useTheme()
-  const [mounted, setMounted] = useState(false)
+  const { theme } = useTheme();
+  // const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  // useEffect(() => {
+  //   setMounted(true);
+  // }, []);
 
-  if (!mounted) return null
+  // if (!mounted) return null;
 
-  const colors = themeColors[themeColor]
-  const isDark = theme === "dark"
-  const primary = isDark ? colors.dark.primary : colors.light.primary
-  const accent = isDark ? colors.dark.accent : colors.light.accent
+  // const colors = themeColors[themeColor];
+  const isDark = theme === "dark";
+  const backgroundColor = isDark ? "#000000" : "#ffffff";
+  // const primary = isDark ? colors.dark.primary : colors.light.primary;
+  // const accent = isDark ? colors.dark.accent : colors.light.accent;
+
+  const fov = 45;
 
   return (
-    <>
-      {/* Gradient overlay */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-0 opacity-5"
-        style={{
-          background: `
-            radial-gradient(circle at 20% 20%, rgb(${primary}) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgb(${accent}) 0%, transparent 50%)
-          `,
-        }}
-      />
-      
-      {/* Animated blobs */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden opacity-10">
-        <div 
-          className="absolute top-0 left-1/4 w-96 h-96 rounded-full blur-3xl animate-blob"
-          style={{
-            background: `radial-gradient(circle, rgb(${primary}) 0%, transparent 70%)`,
-          }}
-        />
-        <div 
-          className="absolute top-1/2 right-1/4 w-96 h-96 rounded-full blur-3xl animate-blob animation-delay-2000"
-          style={{
-            background: `radial-gradient(circle, rgb(${accent}) 0%, transparent 70%)`,
-          }}
-        />
-        <div 
-          className="absolute bottom-0 left-1/2 w-96 h-96 rounded-full blur-3xl animate-blob animation-delay-4000"
-          style={{
-            background: `radial-gradient(circle, rgb(${primary}) 0%, transparent 70%)`,
-          }}
-        />
-      </div>
-    </>
-  )
-}
+    <div className="fixed inset-0 z-0 pointer-events-none">
+      {/* Cosmic Grid Background */}
+      <div className="fixed h-screen w-screen" />
 
+      {/* Stars Layer */}
+      {/* {<div className="stars opacity-40" />} */}
+
+      {/* Scan Lines */}
+      {/* {<div className="scan-lines opacity-30" />} */}
+
+      <Canvas
+        className="w-full h-full"
+        camera={{
+          position: [1.2, 2.8, -1.3],
+          fov,
+          near: 0.01,
+          far: 300,
+        }}
+        dpr={[1, 2]}
+      >
+        <color attach="background" args={[backgroundColor]} />
+        <Particles
+          speed={1.0}
+          aperture={1.4}
+          focus={3.8}
+          size={512}
+          noiseScale={0.3} // Controls the scale of the distortion
+          noiseIntensity={1.1} // Controls the amount of distortion
+          timeScale={0.3}
+          pointSize={8}
+          opacity={0.75}
+          planeScale={12}
+          isDark={isDark}
+        />
+        <Effects multisamping={0} disableGamma>
+          <shaderPass
+            args={[VignetteShader]}
+            uniforms-darkness-value={1.5}
+            uniforms-offset-value={0.4}
+          />
+        </Effects>
+      </Canvas>
+    </div>
+  );
+}

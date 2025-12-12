@@ -36,9 +36,19 @@ const resources = {
         title: "Kinh nghiệm",
         items: [
           {
+            company: "Galaxy Education JSC",
+            role: "Frontend Engineer",
+            period: "April 2025 - Present",
+            description:
+              "Phát triển platform giáo viên và học sinh - hệ thống quản lý giáo dục toàn diện với các tính năng: quản lý lớp học, bài giảng, bài tập, điểm số, tương tác giữa giáo viên và học sinh. Xây dựng các tính năng real-time cho việc học tập và giảng dạy trực tuyến.",
+            tech: "React • Next.js • TypeScript • Node.js • MongoDB • Socket IO",
+            achievement: "Education Platform • Real-time Learning",
+            icon: "🎓",
+          },
+          {
             company: "Biso24",
             role: "Frontend Developer",
-            period: "June 2022 - Present",
+            period: "June 2022 - April 2025",
             description:
               "Phát triển và bảo trì các tính năng cho dự án E-Learning: tạo và quản trị khóa học bởi admin và user, tính năng thanh toán qua VN Pay và học khóa học cho user. Phát triển dự án ERP - hệ thống quản lý doanh nghiệp toàn diện với các module tích hợp: Warehouse (quản lý kho), Sales & CRM (quản lý bán hàng và khách hàng), Purchasing & SRM (quản lý nhà cung cấp), Workflow (tự động hóa quy trình). MVP Workflow với Kanban, Calendar, Gantt (sử dụng VueJs) - kéo thả task từ UI, export/import test case ra Excel/CSV, push notifications real-time qua Mail và Slack.",
             tech: "React • Next.js • JavaScript • TypeScript • Node.js • Express • MongoDB • Docker • Socket IO",
@@ -74,6 +84,23 @@ const resources = {
         liveDemo: "Xem demo",
         code: "Mã nguồn",
         items: [
+          {
+            name: "Education Platform - Galaxy Education",
+            description:
+              "Platform giáo viên và học sinh - hệ thống quản lý giáo dục toàn diện với các tính năng: quản lý lớp học, bài giảng, bài tập, điểm số, tương tác giữa giáo viên và học sinh. Hệ thống hỗ trợ học tập và giảng dạy trực tuyến với tính năng real-time, video call, chat, và chia sẻ tài liệu.",
+            technologies: [
+              "React",
+              "Next.js",
+              "TypeScript",
+              "Node.js",
+              "MongoDB",
+              "Socket IO",
+              "WebRTC",
+            ],
+            highlight: "Education Management",
+            metrics: "Real-time Learning • Teacher-Student Platform",
+            icon: "🎓",
+          },
           {
             name: "ERP System - Biso24",
             description:
@@ -156,6 +183,35 @@ const resources = {
       footer: {
         inspired: "Lấy cảm hứng từ tailwindcss.com.",
         built: "Được xây dựng bởi DTD. Mã nguồn có sẵn trên",
+        tagline: "Frontend Engineer & UI/UX Designer",
+        about: {
+          title: "Về Tôi",
+          me: "Giới thiệu",
+          skills: "Kỹ năng",
+          experience: "Kinh nghiệm",
+          achievements: "Thành tích",
+        },
+        projects: {
+          title: "Dự Án",
+          all: "Tất cả dự án",
+          github: "GitHub",
+          thanks: "Cảm ơn",
+        },
+        contact: {
+          title: "Liên Hệ",
+        },
+        social: {
+          title: "Mạng Xã Hội",
+        },
+        copyright: "Đặng Trọng Đạt. Tất cả quyền được bảo lưu.",
+        sourceCode: "Mã nguồn",
+        thanks: "Cảm ơn",
+      },
+      thanks: {
+        title: "CẢM ƠN!",
+        subtitle: "Rất mong được liên hệ với bạn!",
+        contactTitle: "ĐẶNG TRỌNG ĐẠT",
+        backHome: "Về trang chủ",
       },
       achievements: {
         title: "Thành Tích & Chứng Chỉ",
@@ -304,9 +360,19 @@ const resources = {
         title: "Experience",
         items: [
           {
+            company: "Galaxy Education JSC",
+            role: "Frontend Engineer",
+            period: "April 2025 - Present",
+            description:
+              "Develop teacher and student platform - comprehensive education management system with features: class management, lessons, assignments, grades, interaction between teachers and students. Building real-time features for online learning and teaching.",
+            tech: "React • Next.js • TypeScript • Node.js • MongoDB • Socket IO",
+            achievement: "Education Platform • Real-time Learning",
+            icon: "🎓",
+          },
+          {
             company: "Biso24",
             role: "Frontend Developer",
-            period: "June 2022 - Present",
+            period: "June 2022 - April 2025",
             description:
               "Develop and maintain features for E-Learning project: create and administer courses by admin and user, payment feature via VN Pay and learn courses for users. Develop ERP project - comprehensive enterprise management system with integrated modules: Warehouse (inventory management), Sales & CRM (sales and customer management), Purchasing & SRM (supplier management), Workflow (process automation). MVP Workflow with Kanban, Calendar, Gantt (using VueJs) - drag and drop tasks from UI, export/import test cases to Excel/CSV, push real-time notifications via Mail and Slack.",
             tech: "React • Next.js • JavaScript • TypeScript • Node.js • Express • MongoDB • Docker • Socket IO",
@@ -342,6 +408,23 @@ const resources = {
         liveDemo: "Live Demo",
         code: "Code",
         items: [
+          {
+            name: "Education Platform - Galaxy Education",
+            description:
+              "Teacher and student platform - comprehensive education management system with features: class management, lessons, assignments, grades, interaction between teachers and students. System supports online learning and teaching with real-time features, video call, chat, and document sharing.",
+            technologies: [
+              "React",
+              "Next.js",
+              "TypeScript",
+              "Node.js",
+              "MongoDB",
+              "Socket IO",
+              "WebRTC",
+            ],
+            highlight: "Education Management",
+            metrics: "Real-time Learning • Teacher-Student Platform",
+            icon: "🎓",
+          },
           {
             name: "ERP System - Biso24",
             description:
@@ -424,6 +507,35 @@ const resources = {
       footer: {
         inspired: "Inspired by tailwindcss.com.",
         built: "Built by DTD. The source code is available on",
+        tagline: "Frontend Engineer & UI/UX Designer",
+        about: {
+          title: "About",
+          me: "About Me",
+          skills: "Skills",
+          experience: "Experience",
+          achievements: "Achievements",
+        },
+        projects: {
+          title: "Projects",
+          all: "All Projects",
+          github: "GitHub",
+          thanks: "Thanks",
+        },
+        contact: {
+          title: "Contact",
+        },
+        social: {
+          title: "Social",
+        },
+        copyright: "Dang Trong Dat. All rights reserved.",
+        sourceCode: "Source Code",
+        thanks: "Thanks",
+      },
+      thanks: {
+        title: "THANK YOU!",
+        subtitle: "Looking forward to contact!",
+        contactTitle: "DANG TRONG DAT",
+        backHome: "Back to Home",
       },
       achievements: {
         title: "Achievements & Certifications",

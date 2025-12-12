@@ -6,7 +6,6 @@ import Certs from "@/components/certs";
 import Experience from "@/components/experience";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
-import LogoSection from "@/components/logo-section";
 import Navigation from "@/components/navigation";
 import Projects from "@/components/projects";
 import Skills from "@/components/skills";
@@ -40,7 +39,6 @@ export default function Home() {
           <Projects />
           <Achievements />
           <Certs />
-          <LogoSection />
           <Footer />
         </div>
       </main>

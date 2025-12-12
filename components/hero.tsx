@@ -10,36 +10,34 @@ export default function Hero() {
   return (
     <section className="pt-24 pb-12 relative overflow-hidden">
       <div className="mx-auto max-w-5xl px-6">
-        {/* Logo lớn trên cùng với hiệu ứng */}
-        <div className="text-center mb-12 relative">
-          <div className="inline-block text-8xl md:text-9xl font-bold select-none relative">
-            <span 
-              className="absolute inset-0 blur-2xl opacity-50 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent"
-              style={{ zIndex: -1 }}
-            >
-              ĐT
-            </span>
-            <span className="relative gradient-text animate-gradient-shift">
-              ĐT
-            </span>
-          </div>
-          {/* Decorative lines */}
-          <div className="absolute left-1/2 -translate-x-1/2 top-1/2 w-full max-w-md h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
-        </div>
+        {/* <div className="relative w-full mb-12">
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={800}
+            height={160}
+            className="w-full h-auto object-contain"
+            priority
+          />
+        </div> */}
 
         {/* Profile Picture & Info */}
         <div className="flex flex-col md:flex-row gap-8 items-start">
           {/* Profile Picture */}
           <div className="shrink-0 mx-auto md:mx-0 relative group">
             {/* Glowing ring */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-accent to-primary opacity-50 blur-xl group-hover:opacity-75 transition-opacity duration-500 animate-pulse-glow" />
-            
+            <div className="absolute inset-0 rounded-full from-primary via-accent to-primary opacity-50 blur-xl group-hover:opacity-75 transition-opacity duration-500 animate-pulse-glow" />
+
             {/* Rotating border */}
-            <div className="absolute inset-0 rounded-full" style={{
-              background: 'conic-gradient(from 0deg, transparent 0%, rgba(var(--primary), 0.5) 25%, transparent 50%, rgba(var(--accent), 0.5) 75%, transparent 100%)',
-              animation: 'rotate-slow 8s linear infinite',
-            }} />
-            
+            <div
+              className="absolute inset-0 rounded-full"
+              style={{
+                background:
+                  "conic-gradient(from 0deg, transparent 0%, rgba(var(--primary), 0.5) 25%, transparent 50%, rgba(var(--accent), 0.5) 75%, transparent 100%)",
+                animation: "rotate-slow 8s linear infinite",
+              }}
+            />
+
             <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-primary/30 group-hover:border-primary/60 transition-all duration-300 group-hover:scale-105 neon-box">
               <Image
                 src="/images/me.jpg"
@@ -60,28 +58,38 @@ export default function Hero() {
                 <span className="relative z-10 gradient-text">
                   {t("hero.name")}
                 </span>
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 blur-lg opacity-50 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute -inset-1 from-primary/20 via-accent/20 to-primary/20 blur-lg opacity-50 group-hover:opacity-100 transition-opacity" />
               </h1>
-              <p className="text-lg text-foreground/60 font-medium tracking-wide">{t("hero.subtitle")}</p>
+              <p className="text-lg text-foreground/60 font-medium tracking-wide">
+                {t("hero.subtitle")}
+              </p>
             </div>
 
             {/* Contact Info - Vertical List */}
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2 group hover:translate-x-1 transition-transform">
                 <span className="text-primary/70 font-mono">▶</span>
-                <span className="text-foreground/80 group-hover:text-foreground transition-colors">{t("hero.title")}</span>
+                <span className="text-foreground/80 group-hover:text-foreground transition-colors">
+                  {t("hero.title")}
+                </span>
               </div>
               <div className="flex items-center gap-2 group hover:translate-x-1 transition-transform">
                 <MapPin className="w-4 h-4 text-primary/70" />
-                <span className="text-foreground/80 group-hover:text-foreground transition-colors">{t("hero.location")}</span>
+                <span className="text-foreground/80 group-hover:text-foreground transition-colors">
+                  {t("hero.location")}
+                </span>
               </div>
               <div className="flex items-center gap-2 group hover:translate-x-1 transition-transform">
                 <Phone className="w-4 h-4 text-primary/70" />
-                <span className="text-foreground/80 group-hover:text-foreground transition-colors">0866646200</span>
+                <span className="text-foreground/80 group-hover:text-foreground transition-colors">
+                  0866646200
+                </span>
               </div>
               <div className="flex items-center gap-2 group hover:translate-x-1 transition-transform">
                 <Mail className="w-4 h-4 text-primary/70" />
-                <span className="text-foreground/80 group-hover:text-foreground transition-colors">dangdattd167@gmail.com</span>
+                <span className="text-foreground/80 group-hover:text-foreground transition-colors">
+                  dangdattd167@gmail.com
+                </span>
               </div>
               <div className="group hover:translate-x-1 transition-transform">
                 <a
@@ -109,7 +117,9 @@ export default function Hero() {
                 className="group relative flex items-center gap-2 px-4 py-2 text-sm neon-box rounded-lg hover:scale-105 transition-all duration-300"
               >
                 <Linkedin className="w-4 h-4 text-primary group-hover:text-accent transition-colors" />
-                <span className="font-medium text-foreground/80 group-hover:text-foreground transition-colors">LinkedIn</span>
+                <span className="font-medium text-foreground/80 group-hover:text-foreground transition-colors">
+                  LinkedIn
+                </span>
               </a>
               <a
                 href="https://github.com/dat16720"
@@ -118,7 +128,9 @@ export default function Hero() {
                 className="group relative flex items-center gap-2 px-4 py-2 text-sm neon-box rounded-lg hover:scale-105 transition-all duration-300"
               >
                 <Github className="w-4 h-4 text-primary group-hover:text-accent transition-colors" />
-                <span className="font-medium text-foreground/80 group-hover:text-foreground transition-colors">GitHub</span>
+                <span className="font-medium text-foreground/80 group-hover:text-foreground transition-colors">
+                  GitHub
+                </span>
               </a>
             </div>
           </div>

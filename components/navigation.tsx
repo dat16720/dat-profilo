@@ -2,7 +2,7 @@
 
 import { Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
-import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ThemeSelector from "./theme-selector";
@@ -42,17 +42,7 @@ export default function Navigation() {
     >
       <nav className="mx-auto max-w-5xl px-6 flex items-center justify-between h-16">
         {/* Logo/Brand - Left */}
-        <Link
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="text-lg font-bold relative group"
-        >
-          <span className="relative z-10 gradient-text">DTD</span>
-          <span className="absolute inset-0 blur-lg from-primary to-accent opacity-0 group-hover:opacity-50 transition-opacity" />
-        </Link>
+        <Image src="/images/logo.png" alt="Logo" width={180} height={180} />
 
         {/* Desktop Menu - Right */}
         <div className="hidden md:flex items-center gap-6">

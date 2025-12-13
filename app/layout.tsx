@@ -7,7 +7,12 @@ import { Geist } from "next/font/google";
 import type React from "react";
 import "./globals.css";
 
-const geist = Geist({ subsets: ["latin"] });
+const geist = Geist({
+  subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  variable: "--font-geist",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://datdt.io.vn"),
@@ -153,6 +158,9 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* DNS prefetch for better performance */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
       </head>
       <body className={`${geist.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>

@@ -43,18 +43,20 @@ export default function ThemeBackground() {
           near: 0.01,
           far: 300,
         }}
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
+        performance={{ min: 0.5 }}
+        gl={{ antialias: false, alpha: false }}
       >
         <color attach="background" args={[backgroundColor]} />
         <Particles
           speed={1.0}
           aperture={1.4}
           focus={3.8}
-          size={512}
+          size={256}
           noiseScale={0.3} // Controls the scale of the distortion
           noiseIntensity={1.1} // Controls the amount of distortion
           timeScale={0.3}
-          pointSize={8}
+          pointSize={6}
           opacity={0.75}
           planeScale={12}
           isDark={isDark}

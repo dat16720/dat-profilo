@@ -26,7 +26,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Logo/Brand - Left Column */}
           <div className="md:col-span-1">
-            <Image src="/images/logo.png" alt="Logo" width={180} height={180} />
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
+              width={180}
+              height={180}
+              loading="lazy"
+              sizes="180px"
+              className="h-auto w-auto"
+            />
             <p className="text-sm text-foreground/60 my-4">
               {t("footer.tagline")}
             </p>

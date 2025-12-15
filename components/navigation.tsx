@@ -3,36 +3,43 @@
 import { Menu, Moon, Search, Sun, X } from "lucide-react";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import ThemeSelector from "./theme-selector";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
   const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    const timer = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    // Sử dụng passive listener để cải thiện performance
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (
-    e: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-    setIsOpen(false);
-  };
+  const scrollToSection = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      setIsOpen(false);
+    },
+    []
+  );
 
   return (
     <header
@@ -112,7 +119,7 @@ export default function Navigation() {
               className="p-2 hover:bg-primary/10 rounded-lg transition-all hover:scale-110 group cursor-pointer"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
+              {mounted && theme === "dark" ? (
                 <Sun className="w-4 h-4 text-foreground/70 group-hover:text-primary transition-colors" />
               ) : (
                 <Moon className="w-4 h-4 text-foreground/70 group-hover:text-primary transition-colors" />
@@ -195,7 +202,7 @@ export default function Navigation() {
                 className="p-2 hover:bg-muted rounded-lg transition-colors"
                 aria-label="Toggle theme"
               >
-                {theme === "dark" ? (
+                {mounted && theme === "dark" ? (
                   <Sun className="w-4 h-4 text-foreground/70" />
                 ) : (
                   <Moon className="w-4 h-4 text-foreground/70" />

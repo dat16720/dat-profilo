@@ -21,8 +21,13 @@ const nextConfig: NextConfig = {
       "lucide-react",
       "@react-three/fiber",
       "@react-three/drei",
+      "three",
     ],
+    // Tắt optimizeCss vì cần critters package
+    // optimizeCss: true,
   },
+  // Turbopack config (Next.js 16 sử dụng Turbopack mặc định)
+  turbopack: {},
 };
 
 export default nextConfig;

@@ -1,7 +1,7 @@
+import { AnalyticsClient } from "@/components/analytics-client";
 import { ThemeProvider } from "@/components/theme-provider";
 import { I18nProvider } from "@/lib/i18n/i18n-context";
 import { ThemeColorProvider } from "@/lib/theme/theme-context";
-import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import type React from "react";
@@ -168,7 +168,7 @@ export default function RootLayout({
             <I18nProvider>{children}</I18nProvider>
           </ThemeColorProvider>
         </ThemeProvider>
-        <Analytics />
+        <AnalyticsClient />
       </body>
     </html>
   );

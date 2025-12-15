@@ -3,38 +3,39 @@
 import { Effects } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { Particles } from "./Particles";
 import { VignetteShader } from "./shaders/vignetteShader";
 
 export default function ThemeBackground() {
   const { theme } = useTheme();
-  // const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
 
-  // useEffect(() => {
-  //   setMounted(true);
-  // }, []);
+  // Delay rendering để giảm TBT
+  useEffect(() => {
+    // Chờ hydration xong
+    setMounted(true);
+    // Delay render Canvas để không block main thread
+    const timer = setTimeout(() => {
+      setShouldRender(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
 
-  // if (!mounted) return null;
+  if (!mounted || !shouldRender) {
+    return (
+      <div className="fixed inset-0 z-0 pointer-events-none bg-background" />
+    );
+  }
 
-  // const colors = themeColors[themeColor];
   const isDark = theme === "dark";
   const backgroundColor = isDark ? "#000000" : "#ffffff";
-  // const primary = isDark ? colors.dark.primary : colors.light.primary;
-  // const accent = isDark ? colors.dark.accent : colors.light.accent;
 
   const fov = 45;
 
   return (
     <div className="fixed inset-0 z-0 pointer-events-none">
-      {/* Cosmic Grid Background */}
-      <div className="fixed h-screen w-screen" />
-
-      {/* Stars Layer */}
-      {/* {<div className="stars opacity-40" />} */}
-
-      {/* Scan Lines */}
-      {/* {<div className="scan-lines opacity-30" />} */}
-
       <Canvas
         className="w-full h-full"
         camera={{
@@ -53,8 +54,8 @@ export default function ThemeBackground() {
           aperture={1.4}
           focus={3.8}
           size={256}
-          noiseScale={0.3} // Controls the scale of the distortion
-          noiseIntensity={1.1} // Controls the amount of distortion
+          noiseScale={0.3}
+          noiseIntensity={1.1}
           timeScale={0.3}
           pointSize={6}
           opacity={0.75}

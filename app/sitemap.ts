@@ -1,10 +1,20 @@
 import { getAllSongIds } from "@/lib/db/songs";
 import type { MetadataRoute } from "next";
 
+/** Sitemap dùng DB nên để dynamic, tránh build-time prerender khi chưa có MONGODB_URI. */
+export const dynamic = "force-dynamic";
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://datdt.io.vn";
   const currentDate = new Date();
-  const songIds = await getAllSongIds();
+  let songIds: string[] = [];
+  if (process.env.MONGODB_URI) {
+    try {
+      songIds = await getAllSongIds();
+    } catch {
+      // Bỏ qua lỗi DB khi build hoặc runtime thiếu kết nối
+    }
+  }
 
   const musicPages: MetadataRoute.Sitemap = songIds.map((id) => ({
     url: `${baseUrl}/music/${id}`,

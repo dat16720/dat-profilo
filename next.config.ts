@@ -16,6 +16,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
   // Experimental features for better performance
+  serverExternalPackages: ["mongoose"],
   experimental: {
     optimizePackageImports: [
       "lucide-react",

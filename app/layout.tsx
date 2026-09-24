@@ -1,5 +1,4 @@
 import { AnalyticsClient } from "@/components/analytics-client";
-import { SessionProvider } from "@/components/providers/session-provider";
 import { ThemeProvider } from "@/components/theme-provider";
 import { I18nProvider } from "@/lib/i18n/i18n-context";
 import { ThemeColorProvider } from "@/lib/theme/theme-context";
@@ -166,9 +165,7 @@ export default function RootLayout({
       <body className={`${geist.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <ThemeColorProvider>
-            <SessionProvider>
-              <I18nProvider>{children}</I18nProvider>
-            </SessionProvider>
+            <I18nProvider>{children}</I18nProvider>
           </ThemeColorProvider>
         </ThemeProvider>
         <AnalyticsClient />

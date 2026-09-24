@@ -29,6 +29,13 @@ const nextConfig: NextConfig = {
   },
   // Turbopack config (Next.js 16 sử dụng Turbopack mặc định)
   turbopack: {},
+  async rewrites() {
+    return {
+      beforeFiles: [
+        { source: "/sinh-nhat", destination: "/sinh-nhat/design.html" },
+      ],
+    };
+  },
 };
 
 export default nextConfig;

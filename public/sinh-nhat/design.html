@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Happy Birthday My Love | Trăng Tròn Của Anh</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&amp;family=Charm:wght@400;700&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            handwriting: ['"Caveat"', '"Charm"', 'cursive'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          colors: {
+            moon: {
+              glow: '#FFF6D1',
+              light: '#FFEAA7',
+              gold: '#FDCB6E',
+              dark: '#2D3436'
+            },
+            night: {
+              deep: '#0a0d1a',
+              card: '#12182c',
+              border: 'rgba(255, 234, 167, 0.18)'
+            }
+          },
+          animation: {
+            'float-slow': 'floating 5s ease-in-out infinite',
+            'float-delayed': 'floating 6s ease-in-out 2s infinite',
+            'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+            'star-twinkle': 'twinkle 2.5s ease-in-out infinite',
+            'stick-wave': 'waveArm 1.4s ease-in-out infinite alternate',
+            'stick-bounce': 'stickBounce 2s ease-in-out infinite',
+            'heart-pop': 'heartPop 1s ease-out forwards',
+          },
+          keyframes: {
+            floating: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-14px)' },
+            },
+            stickBounce: {
+              '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+              '50%': { transform: 'translateY(-8px) rotate(2deg)' },
+            },
+            waveArm: {
+              '0%': { transform: 'rotate(0deg)' },
+              '100%': { transform: 'rotate(-45deg)' },
+            },
+            pulseGlow: {
+              '0%, 100%': { opacity: '0.85', filter: 'drop-shadow(0 0 45px rgba(255,234,167,0.45))' },
+              '50%': { opacity: '1', filter: 'drop-shadow(0 0 75px rgba(255,234,167,0.8))' },
+            },
+            twinkle: {
+              '0%, 100%': { opacity: '0.2', transform: 'scale(0.8)' },
+              '50%': { opacity: '1', transform: 'scale(1.2)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    /* Custom Scrollbar & Canvas Style */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0d1a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #252e4d;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #FDCB6E;
+    }
+    
+    /* Click heart burst */
+    .floating-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: floatUpAndFade 1.2s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+    }
+
+    @keyframes floatUpAndFade {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.6) rotate(0deg);
+      }
+      50% {
+        transform: translate(-50%, -100px) scale(1.3) rotate(15deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -180px) scale(1) rotate(-15deg);
+      }
+    }
+
+    /* Hand-drawn scribble button feel */
+    .hidden { display: none; }
+    .stick-border {
+      border: 2px solid rgba(255, 234, 167, 0.4);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+    }
+
+    body {
+      background-color: #0a0d1a;
+      color: #e2e8f0;
+      font-family: "Plus Jakarta Sans", sans-serif;
+    }
+
+    #skyCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .font-sans { font-family: "Plus Jakarta Sans", sans-serif; }
+    .font-handwriting { font-family: "Caveat", "Charm", cursive; }
+    .font-serif { font-family: "Playfair Display", Georgia, serif; }
+    .text-moon-gold { color: #FDCB6E; }
+    .text-moon-light { color: #FFEAA7; }
+    .text-moon-light\/80 { color: rgb(255 234 167 / 0.8); }
+    .text-moon-glow { color: #FFF6D1; }
+    .text-night-deep { color: #0a0d1a; }
+    .bg-night-deep { background-color: #0a0d1a; }
+    .bg-night-card { background-color: #12182c; }
+    .bg-night-card\/80 { background-color: rgb(18 24 44 / 0.8); }
+    .bg-moon-gold { background-color: #FDCB6E; }
+    .bg-moon-light\/10 { background-color: rgb(255 234 167 / 0.1); }
+    .border-moon-gold { border-color: #FDCB6E; }
+    .border-moon-gold\/40 { border-color: rgb(253 203 110 / 0.4); }
+    .border-moon-gold\/50 { border-color: rgb(253 203 110 / 0.5); }
+    .border-moon-gold\/60 { border-color: rgb(253 203 110 / 0.6); }
+    .border-moon-light\/20 { border-color: rgb(255 234 167 / 0.2); }
+    .border-moon-light\/30 { border-color: rgb(255 234 167 / 0.3); }
+    .hover\:text-moon-light:hover { color: #FFEAA7; }
+    .hover\:border-moon-gold:hover { border-color: #FDCB6E; }
+    .hover\:border-moon-gold\/60:hover { border-color: rgb(253 203 110 / 0.6); }
+    ::selection, .selection\:bg-moon-gold::selection { background: #FDCB6E; color: #0a0d1a; }
+
+    .from-moon-glow {
+      --tw-gradient-from: #FFF6D1 var(--tw-gradient-from-position);
+      --tw-gradient-to: rgb(255 246 209 / 0) var(--tw-gradient-to-position);
+      --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    }
+    .via-moon-light {
+      --tw-gradient-stops: var(--tw-gradient-from), #FFEAA7 var(--tw-gradient-via-position), var(--tw-gradient-to);
+    }
+    .via-moon-gold {
+      --tw-gradient-stops: var(--tw-gradient-from), #FDCB6E var(--tw-gradient-via-position), var(--tw-gradient-to);
+    }
+    .to-moon-gold { --tw-gradient-to: #FDCB6E var(--tw-gradient-to-position); }
+
+    @keyframes floating {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+    @keyframes stickBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(2deg); }
+    }
+    @keyframes waveArm {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(-42deg); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 45px rgba(255, 234, 167, 0.45)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 75px rgba(255, 234, 167, 0.8)); }
+    }
+    .animate-float-slow { animation: floating 5s ease-in-out infinite; }
+    .animate-float-delayed { animation: floating 6s ease-in-out 2s infinite; }
+    .animate-stick-bounce { animation: stickBounce 2s ease-in-out infinite; }
+    .animate-pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+    svg .animate-float-slow,
+    svg .animate-float-delayed,
+    .animate-stick-wave {
+      transform-box: fill-box;
+    }
+    .animate-stick-wave {
+      transform-origin: 0% 100%;
+      animation: waveArm 1.4s ease-in-out infinite alternate;
+    }
+
+    .memory-slider { position: relative; max-width: 720px; margin: 0 auto; }
+    @media (min-width: 1024px) {
+      .memory-slider { max-width: 1100px; }
+      .memory-slide { padding: 0 8px; }
+      .memory-media { height: 280px; }
+      .memory-nav { top: 140px; }
+    }
+    .memory-viewport { overflow: hidden; border-radius: 24px; }
+    .memory-track { display: flex; transition: transform 0.45s ease; }
+    .memory-slide { min-width: 100%; box-sizing: border-box; }
+    .memory-card {
+      background: #12182c;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 16px;
+    }
+    .memory-media {
+      position: relative;
+      height: 360px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0f172a;
+    }
+    .memory-media img, .memory-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .memory-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #FFEAA7;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-family: "Caveat", "Charm", cursive;
+      font-size: 14px;
+    }
+    .memory-kicker { color: #FDCB6E; font-size: 12px; font-family: ui-monospace, monospace; }
+    .memory-card h3 { color: white; font-size: 1.25rem; margin: 4px 0 0; }
+    .memory-card p { color: #94a3b8; font-size: 13px; line-height: 1.6; }
+    .memory-foot {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      justify-content: space-between;
+      color: #64748b;
+      font-size: 12px;
+    }
+    .memory-foot span:last-child { color: #fb7185; }
+    .memory-nav {
+      position: absolute;
+      top: 180px;
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(253, 203, 110, 0.5);
+      background: rgba(10, 13, 26, 0.85);
+      color: #FDCB6E;
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .memory-prev { left: -8px; }
+    .memory-next { right: -8px; }
+    .memory-dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+    .memory-dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(255, 234, 167, 0.35);
+      cursor: pointer;
+    }
+    .memory-dots button.is-active { width: 22px; background: #FDCB6E; }
+    @media (max-width: 640px) {
+      .memory-media { height: 240px; }
+      .memory-nav { top: 120px; }
+    }
+  </style>
+</head>
+<body class="bg-[#0a0d1a] text-slate-100 font-sans selection:bg-moon-gold selection:text-night-deep overflow-x-hidden relative">
+<!-- ========================================== -->
+<!-- NỀN TRỜI SAO VÀ CANVAS HIỆU ỨNG PHÁO HOA  -->
+<!-- ========================================== -->
+<canvas class="fixed inset-0 pointer-events-none z-0" id="skyCanvas"></canvas>
+<!-- ========================================== -->
+<!-- NÚT BẬT / TẮT NHẠC NỀN (AUDIO PLAYER UI)  -->
+<!-- ========================================== -->
+<div class="fixed top-5 right-5 z-50 flex items-center gap-3">
+<!-- TOOLTIP HƯỚNG DẪN -->
+<span class="hidden sm:inline-block text-xs font-handwriting text-moon-light/80 bg-night-card/80 backdrop-blur px-3 py-1 rounded-full border border-moon-light/20 shadow-lg">
+      ♫ Nhạc sinh nhật nè em!
+    </span>
+<button class="relative group p-3 rounded-full bg-slate-900/90 hover:bg-slate-800 text-moon-light border border-moon-gold/40 shadow-[0_0_20px_rgba(253,203,110,0.3)] transition-all duration-300 hover:scale-110 active:scale-95" id="musicToggleBtn" title="Bật/Tắt Nhạc Nền">
+<!-- SVG Biểu tượng nốt nhạc kết hợp mặt trăng -->
+<svg class="w-6 h-6 transform transition-transform group-hover:rotate-12" fill="none" id="musicPlayIcon" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12 0c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<!-- Vòng tròn sóng âm đang đập khi phát nhạc -->
+<span class="absolute inset-0 rounded-full border-2 border-moon-gold animate-ping opacity-0 pointer-events-none" id="musicPulseRing"></span>
+</button>
+</div>
+<!-- 
+    ========================================================================
+    THAY_NHAC_TAI_DAY: 
+    Bạn có thể thay URL trong thuộc tính src bằng link mp3 bài hát em thích!
+    Ví dụ: 'https://example.com/happy-birthday.mp3' hoặc file cục bộ './nhac_chuc_mung.mp3'
+    ========================================================================
+  -->
+<audio id="bgAudio" loop="" preload="auto" src="/sinh-nhat/birthday.wav"></audio>
+<!-- ========================================== -->
+<!-- NAVIGATION BAR (STICK MAN HAND-DRAWN STYLE)-->
+<!-- ========================================== -->
+<header class="fixed top-0 left-0 right-0 z-40 bg-[#0a0d1a]/70 backdrop-blur-md border-b border-white/5 px-6 py-4">
+<div class="max-w-6xl mx-auto flex items-center justify-between">
+<a class="flex items-center gap-3 group" href="#hero">
+<!-- SVG Stick Man Avatar mini -->
+<div class="w-10 h-10 rounded-full bg-moon-light/10 border border-moon-light/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+<svg class="w-7 h-7 text-moon-gold" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewbox="0 0 40 40">
+<!-- Đầu & Nụ cười Stickman -->
+<circle cx="20" cy="15" r="9"></circle>
+<circle cx="17" cy="13" fill="currentColor" r="1.2"></circle>
+<circle cx="23" cy="13" fill="currentColor" r="1.2"></circle>
+<path d="M16 18 Q20 22 24 18"></path>
+<path d="M20 24 L20 35 M12 28 Q20 32 28 28"></path>
+</svg>
+</div>
+<div>
+<!-- THAY_TEN_BAN_GAI_TAI_DAY -->
+<span class="font-handwriting text-2xl font-bold text-moon-light tracking-wide block leading-none">Bé Yêu 24.09</span>
+<span class="text-[10px] text-slate-400 font-mono tracking-widest uppercase">Libra Queen • 27 Tuổi</span>
+</div>
+</a>
+<!-- Quick Nav Links -->
+<nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+<a class="hover:text-moon-light transition-colors hover:-translate-y-0.5 transform inline-block" href="#hero">Ánh Trăng</a>
+<a class="hover:text-moon-light transition-colors hover:-translate-y-0.5 transform inline-block" href="#wishes">Lời Chúc</a>
+<a class="hover:text-moon-light transition-colors hover:-translate-y-0.5 transform inline-block" href="#gallery">Khoảnh Khắc Kỷ Niệm</a>
+<a class="hover:text-moon-light transition-colors hover:-translate-y-0.5 transform inline-block" href="#interactive">Hộp Quà Stickman</a>
+</nav>
+<!-- Badge Tuổi mới -->
+<div class="hidden sm:flex items-center gap-2 bg-gradient-to-r from-amber-500/20 to-yellow-300/10 border border-amber-300/30 px-3 py-1.5 rounded-full text-xs text-moon-light font-handwriting text-lg">
+<span>✨ Tuổi 27 Rạng Rỡ</span>
+</div>
+</div>
+</header>
+<!-- =================================================== -->
+<!-- 1. HERO SECTION: TRĂNG RẰM & STICK MAN CHÀO ĐÓN     -->
+<!-- =================================================== -->
+<section class="min-h-screen relative pt-28 pb-16 flex items-center justify-center px-4 overflow-hidden" id="hero">
+<!-- Ánh trăng rằm tỏa sáng ở trung tâm nền -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] sm:w-[500px] sm:h-[500px] rounded-full bg-gradient-to-tr from-amber-100/15 via-yellow-200/20 to-transparent blur-3xl pointer-events-none animate-pulse-glow"></div>
+<div class="relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center">
+<!-- Cung Thiên Bình & Badge ngày sinh -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-moon-light/30 backdrop-blur-md mb-6 animate-float-slow">
+<span class="text-moon-gold text-sm font-semibold">♎ Cung Thiên Bình</span>
+<span class="w-1.5 h-1.5 rounded-full bg-moon-gold animate-ping"></span>
+<!-- THAY_NGAY_SINH_TAI_DAY -->
+<span class="text-xs text-slate-300 tracking-wider">24.09.1999 — Ngày Đẹp Nhất Mùa Thu</span>
+</div>
+<!-- MAIN ARTWORK: STICK MAN ĐỨNG BÊN MẶT TRĂNG NGÀY RẰM (VẼ BẰNG SVG TINH XẢO) -->
+<div class="relative w-72 h-72 sm:w-96 sm:h-96 my-4 select-none">
+<!-- VẦNG TRĂNG RẰM TRÒN ĐẦY VÀ ĐÁM MÂY HUYỀN ẢO -->
+<svg class="absolute inset-0 w-full h-full filter drop-shadow-[0_0_50px_rgba(255,234,167,0.45)]" fill="none" viewbox="0 0 400 400">
+<!-- Trăng Rằm Lớn -->
+<circle cx="200" cy="180" fill="url(#moonGradient)" r="110" stroke="#FFF6D1" stroke-width="2"></circle>
+<!-- Họa tiết bóng trăng mềm mại -->
+<circle cx="160" cy="150" fill="#F8E7A0" fill-opacity="0.35" r="28"></circle>
+<circle cx="240" cy="210" fill="#F8E7A0" fill-opacity="0.25" r="38"></circle>
+<circle cx="230" cy="140" fill="#F8E7A0" fill-opacity="0.2" r="20"></circle>
+<circle cx="155" cy="215" fill="#F8E7A0" fill-opacity="0.25" r="18"></circle>
+<!-- Tia sáng lấp lánh xung quanh trăng -->
+<g class="animate-pulse" stroke="#FFEAA7" stroke-linecap="round" stroke-width="2">
+<line x1="200" x2="200" y1="50" y2="40"></line>
+<line x1="200" x2="200" y1="310" y2="320"></line>
+<line x1="70" x2="60" y1="180" y2="180"></line>
+<line x1="330" x2="340" y1="180" y2="180"></line>
+<line x1="108" x2="100" y1="88" y2="80"></line>
+<line x1="292" x2="300" y1="88" y2="80"></line>
+<line x1="108" x2="100" y1="272" y2="280"></line>
+<line x1="292" x2="300" y1="272" y2="280"></line>
+</g>
+<!-- Đám mây phong cách Stick Man uốn lượn dưới chân -->
+<path d="M90 270 C100 240, 150 240, 170 260 C190 235, 250 235, 275 260 C300 245, 340 260, 335 285 C330 305, 120 305, 90 270 Z" fill="#12182c" fill-opacity="0.85" stroke="#FFEAA7" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Gradients -->
+<defs>
+<radialgradient cx="0.4" cy="0.4" id="moonGradient" r="0.6">
+<stop offset="0%" stop-color="#FFFDF0"></stop>
+<stop offset="60%" stop-color="#FFEAA7"></stop>
+<stop offset="100%" stop-color="#FDCB6E"></stop>
+</radialgradient>
+</defs>
+</svg>
+<!-- NHÂN VẬT 1: STICK MAN BẠN TRAI CẦM CHÙM BÓNG TRÁI TIM & VẪY TAY -->
+<div class="absolute bottom-12 left-10 sm:left-14 w-28 h-40 animate-stick-bounce">
+<svg class="w-full h-full" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" viewbox="0 0 100 140">
+<!-- Chùm bóng bay hình trái tim -->
+<g class="animate-float-slow">
+<!-- Dây bóng -->
+<path d="M30 65 Q25 40 22 25" stroke="#FFEAA7" stroke-dasharray="2,2" stroke-width="1.5"></path>
+<!-- Quả bóng trái tim -->
+<path d="M22 25 C15 15, 5 22, 14 32 L22 40 L30 32 C39 22, 29 15, 22 25 Z" fill="#FF7675" stroke="#FF7675" stroke-width="1"></path>
+</g>
+<!-- Đầu Stickman -->
+<circle cx="50" cy="30" fill="#0a0d1a" r="16" stroke="#FFFFFF" stroke-width="3.5"></circle>
+<!-- Mắt cười híp tít hạnh phúc -->
+<path d="M43 28 Q46 24 49 28" stroke="#FFEAA7" stroke-width="2.5"></path>
+<path d="M51 28 Q54 24 57 28" stroke="#FFEAA7" stroke-width="2.5"></path>
+<!-- Nụ cười rạng rỡ -->
+<path d="M44 35 Q50 42 56 35" stroke="#FFEAA7" stroke-width="2.5"></path>
+<!-- Má hồng -->
+<circle cx="41" cy="34" fill="#FF7675" r="2.5" stroke="none"></circle>
+<circle cx="59" cy="34" fill="#FF7675" r="2.5" stroke="none"></circle>
+<!-- Cơ thể -->
+<line x1="50" x2="50" y1="46" y2="92"></line>
+<!-- Cánh tay vẫy chào bạn gái -->
+<g class="origin-top-left animate-stick-wave">
+<line x1="50" x2="75" y1="56" y2="40"></line>
+<line x1="75" x2="88" y1="40" y2="25"></line>
+</g>
+<!-- Tay trái cầm dây bóng -->
+<line x1="50" x2="30" y1="56" y2="65"></line>
+<!-- Đôi chân -->
+<line x1="50" x2="35" y1="92" y2="128"></line>
+<line x1="50" x2="65" y1="92" y2="128"></line>
+</svg>
+</div>
+<!-- NHÂN VẬT 2: STICK MAN BẠN GÁI (CÔ GÁI THIÊN BÌNH ĐÁNG YÊU ĐEO NƠ) -->
+<div class="absolute bottom-12 right-10 sm:right-14 w-28 h-40 animate-float-delayed">
+<svg class="w-full h-full" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" viewbox="0 0 100 140">
+<!-- Vương miện / Chiếc nơ xinh trên đầu -->
+<path d="M43 14 L50 20 L57 14 L55 22 L45 22 Z" fill="#FDCB6E" stroke="#FDCB6E" stroke-width="1.5"></path>
+<!-- Đầu cô gái -->
+<circle cx="50" cy="30" fill="#0a0d1a" r="16" stroke="#FFFFFF" stroke-width="3.5"></circle>
+<!-- Đôi mắt tròn long lanh chớp -->
+<circle cx="45" cy="29" fill="#FFEAA7" r="2.2" stroke="none"></circle>
+<circle cx="55" cy="29" fill="#FFEAA7" r="2.2" stroke="none"></circle>
+<!-- Miệng cười chúm chím -->
+<path d="M47 36 Q50 39 53 36" stroke="#FFEAA7" stroke-width="2.5"></path>
+<!-- Má ửng hồng e thẹn -->
+<circle cx="42" cy="34" fill="#FD79A8" r="3" stroke="none"></circle>
+<circle cx="58" cy="34" fill="#FD79A8" r="3" stroke="none"></circle>
+<!-- Cơ thể và chiếc váy hoa xòe phong cách stick-drawing -->
+<line x1="50" x2="50" y1="46" y2="70"></line>
+<path d="M50 70 L30 100 L70 100 Z" fill="#FD79A8" fill-opacity="0.3" stroke="#FFFFFF" stroke-width="3"></path>
+<!-- Tay ôm hoa hướng dương/mặt trăng -->
+<line x1="50" x2="35" y1="56" y2="72"></line>
+<line x1="50" x2="65" y1="56" y2="72"></line>
+<circle cx="50" cy="72" fill="#FDCB6E" r="7" stroke="#FFEAA7" stroke-width="1.5"></circle>
+<!-- Đôi chân đi giày -->
+<line x1="42" x2="40" y1="100" y2="128"></line>
+<line x1="58" x2="60" y1="100" y2="128"></line>
+</svg>
+</div>
+</div>
+<!-- TIÊU ĐỀ CHÍNH DÀNH CHO CÔ GÁI TRÒN 27 TUỔI -->
+<h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mt-4">
+        Chúc Mừng Sinh Nhật 
+        <span class="block mt-2 font-handwriting text-5xl sm:text-7xl md:text-8xl text-transparent bg-clip-text bg-gradient-to-r from-moon-glow via-moon-light to-moon-gold">
+          Em Bé Thiên Bình! ✨
+        </span>
+</h1>
+<p class="max-w-2xl text-slate-300 text-base sm:text-lg mt-6 leading-relaxed font-light">
+        "Như vầng trăng rằm tháng Tám tròn đầy và dịu dàng nhất, tuổi 27 của em sẽ ngập tràn ấm áp, bình yên và luôn có anh bên cạnh đồng hành."
+      </p>
+<!-- CÁC NÚT TƯƠNG TÁC (STICK MAN CALL TO ACTIONS) -->
+<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+<a class="px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-night-deep font-bold text-sm tracking-wide shadow-[0_0_30px_rgba(253,203,110,0.4)] hover:shadow-[0_0_40px_rgba(253,203,110,0.7)] hover:scale-105 active:scale-95 transition-all flex items-center gap-2" href="#wishes">
+<span>Xem Lời Chúc Của Anh</span>
+<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+<!-- NÚT BẮN PHÁO HOA THẢ TIM -->
+<button class="stick-border px-6 py-3 rounded-full bg-slate-900/60 hover:bg-slate-800/80 text-moon-light font-handwriting text-xl tracking-wider transition-all hover:scale-105 active:scale-95 flex items-center gap-2" id="confettiBtn">
+<span>Tặng Em Muôn Vì Sao 🌟</span>
+</button>
+</div>
+<!-- Chỉ số đếm ngày đặc biệt -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-14 w-full max-w-2xl">
+<div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm">
+<div class="text-3xl font-extrabold text-moon-gold font-mono">27</div>
+<div class="text-xs text-slate-400 mt-1">Năm Xinh Đẹp</div>
+</div>
+<div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm">
+<div class="text-3xl font-extrabold text-moon-light font-mono">24/09</div>
+<div class="text-xs text-slate-400 mt-1">Ngày Em Chào Đời</div>
+</div>
+<div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm">
+<div class="text-3xl font-extrabold text-moon-gold font-mono">100%</div>
+<div class="text-xs text-slate-400 mt-1">Trăng Rằm Ấm Áp</div>
+</div>
+<div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-sm">
+<div class="text-3xl font-extrabold text-rose-400 font-mono">∞</div>
+<div class="text-xs text-slate-400 mt-1">Yêu Thương Anh Trao</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =================================================== -->
+<!-- 2. LỜI CHÚC (GREETING SECTION) - LÁ THƯ DƯỚI ÁNH TRĂNG -->
+<!-- =================================================== -->
+<section class="py-24 px-4 relative z-10" id="wishes">
+<div class="max-w-4xl mx-auto">
+<!-- Section Header -->
+<div class="text-center mb-16">
+<div class="inline-flex items-center gap-2 text-moon-gold font-handwriting text-2xl mb-2">
+<span>✦ Thư gửi tuổi 27 của em ✦</span>
+</div>
+<h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+          Dành Cho Người Con Gái Dưới Ánh Trăng
+        </h2>
+<div class="w-24 h-1 bg-gradient-to-r from-transparent via-moon-gold to-transparent mx-auto mt-4"></div>
+</div>
+<!-- KHUNG THƯ PHONG CÁCH STICK MAN VẼ TAY & THIÊN BÌNH -->
+<div class="relative bg-gradient-to-b from-[#141b34] to-[#0d1224] rounded-3xl p-6 sm:p-12 border border-moon-light/20 shadow-[0_20px_60px_rgba(0,0,0,0.6)] overflow-hidden">
+<!-- Hình trang trí Stick man leo thang hái sao trên nóc thư -->
+<div class="absolute -top-3 right-8 w-20 h-28 hidden sm:block">
+<svg class="w-full h-full" fill="none" stroke="#FFEAA7" stroke-linecap="round" stroke-width="2.5" viewbox="0 0 80 110">
+<!-- Chiếc thang -->
+<line x1="20" x2="20" y1="10" y2="100"></line>
+<line x1="45" x2="45" y1="10" y2="100"></line>
+<line x1="20" x2="45" y1="30" y2="30"></line>
+<line x1="20" x2="45" y1="50" y2="50"></line>
+<line x1="20" x2="45" y1="70" y2="70"></line>
+<line x1="20" x2="45" y1="90" y2="90"></line>
+<!-- Stickman leo thang -->
+<circle cx="32" cy="18" fill="#141b34" r="8"></circle>
+<line x1="32" x2="32" y1="26" y2="48"></line>
+<line x1="32" x2="16" y1="32" y2="28"></line>
+<line x1="32" x2="48" y1="32" y2="18"></line>
+<line x1="32" x2="24" y1="48" y2="60"></line>
+<line x1="32" x2="40" y1="48" y2="54"></line>
+<!-- Ngôi sao nhỏ cầm tay -->
+<path d="M50 15 L52 10 L57 12 L53 16 L56 20 L51 18 Z" fill="#FDCB6E" stroke="none"></path>
+</svg>
+</div>
+<!-- 
+          ========================================================================
+          THAY_LOI_CHUC_TAI_DAY:
+          Bạn có thể thoải mái chỉnh sửa các đoạn văn bên dưới theo ý bạn nhé!
+          ========================================================================
+        -->
+<div class="relative z-10 space-y-6 text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
+<p class="font-handwriting text-3xl sm:text-4xl text-moon-light font-bold">
+            Gửi em bé Thiên Bình tròn 27 tuổi của anh,
+          </p>
+<p>
+            Hôm nay là ngày 24 tháng 09 — ngày mà 27 năm trước, vũ trụ đã mang một tâm hồn dịu dàng, thông minh và tràn đầy ấm áp đến với cuộc đời này. Đối với anh, em luôn giống như ánh trăng tròn vào ngày rằm vậy: không chói lòa gắt gỏng như mặt trời trưa hạ, mà luôn sáng dịu, xoa dịu mọi muộn phiền và mang lại cảm giác bình yên đến lạ kỳ mỗi khi anh được ở cạnh em.
+          </p>
+<div class="my-6 p-6 rounded-2xl bg-white/[0.04] border-l-4 border-moon-gold font-serif italic text-lg sm:text-xl text-moon-glow">
+            "Tuổi 27 không làm em già đi, mà chỉ làm cho nụ cười của em thêm phần đằm thắm, sự tự tin của em thêm vững vàng và vẻ đẹp của em thêm phần kiêu hãnh như vầng trăng giữa trời thu."
+          </div>
+<p>
+            Bước sang tuổi mới, anh chỉ mong em có thật nhiều sức khỏe, luôn được làm những điều em yêu thích, ăn những món em mê, đi những nơi em mơ ước. Dù ngoài kia có bao nhiêu áp lực của công việc hay cuộc sống, hãy luôn nhớ rằng phía sau em luôn có anh — người sẵn sàng chở che, lắng nghe và mang đến cho em những điều bình dị, hạnh phúc nhất.
+          </p>
+<div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div>
+<p class="text-sm text-slate-400">Yêu em nhiều hơn mỗi ngày,</p>
+<!-- THAY_CHU_KY_TAI_DAY -->
+<p class="font-handwriting text-4xl text-moon-gold mt-1">Chàng Trai Của Em ❤️</p>
+</div>
+<!-- Nút tương tác: Gửi ngàn nụ hôn -->
+<button class="px-5 py-2.5 rounded-full bg-rose-500/20 hover:bg-rose-500/30 border border-rose-400/40 text-rose-300 text-sm font-medium transition-all hover:scale-105 active:scale-95 flex items-center gap-2" onclick="triggerKissEffect()">
+<span>Gửi 27000 Nụ Hôn</span>
+<span class="animate-bounce">💋</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- =================================================== -->
+<!-- 3. ALBUM KỶ NIỆM (GALLERY SECTION)                  -->
+<!-- =================================================== -->
+<section class="py-24 px-4 relative z-10 bg-slate-950/60 backdrop-blur-sm border-y border-white/5" id="gallery">
+<div class="max-w-6xl mx-auto">
+<!-- Tiêu đề Album -->
+<div class="text-center mb-16">
+<span class="text-moon-light font-handwriting text-2xl">✦ Khoảnh Khắc Ngọt Ngào ✦</span>
+<h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-1">
+          Hành Trình Tình Yêu &amp; Ánh Trăng
+        </h2>
+<p class="text-slate-400 text-sm sm:text-base mt-3 max-w-xl mx-auto">
+          Mỗi bức ảnh là một trang nhật ký ghi dấu những kỷ niệm đẹp đẽ mà hai đứa mình đã cùng nhau đi qua.
+        </p>
+</div>
+<div class="memory-slider" id="memorySlider">
+<button class="memory-nav memory-prev" id="memoryPrev" type="button" aria-label="Ảnh trước">‹</button>
+<div class="memory-viewport">
+<div class="memory-track" id="memoryTrack"></div>
+</div>
+<button class="memory-nav memory-next" id="memoryNext" type="button" aria-label="Ảnh sau">›</button>
+<div class="memory-dots" id="memoryDots"></div>
+</div>
+<div class="mt-12 p-4 rounded-2xl bg-amber-400/5 border border-amber-300/20 text-center max-w-xl mx-auto">
+<p class="text-xs text-moon-light/80 font-mono">
+          Thêm ảnh hoặc video trong mảng <code class="text-moon-gold bg-black/40 px-1 py-0.5 rounded">MEMORIES</code> ở cuối file. <code>type: "image"</code> hoặc <code>type: "video"</code>, rồi dán <code>src</code>.
+        </p>
+</div>
+</div>
+</section>
+<!-- =================================================== -->
+<!-- 4. HỘP QUÀ TƯƠNG TÁC PHONG CÁCH STICK MAN UI         -->
+<!-- =================================================== -->
+<section class="py-24 px-4 relative z-10 overflow-hidden" id="interactive">
+<div class="max-w-4xl mx-auto text-center">
+<span class="text-moon-light font-handwriting text-2xl">✦ Góc Tương Tác Vui Nhộn ✦</span>
+<h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 mb-4">
+        Nhấp Vào Hộp Quà Stickman Để Mở Bất Ngờ
+      </h2>
+<p class="text-slate-400 text-sm max-w-md mx-auto mb-10">
+        Anh Stickman đang ôm một món quà bí mật dành riêng cho bạn gái 27 tuổi. Nhấp vào chiếc hộp xem có gì nào!
+      </p>
+<!-- KHUNG HỘP QUÀ & STICK MAN ANIMATED -->
+<div class="inline-block relative">
+<button class="group relative p-8 rounded-3xl bg-night-card border-2 border-dashed border-moon-gold/50 hover:border-moon-gold transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_50px_rgba(253,203,110,0.2)] focus:outline-none" id="giftBoxBtn">
+<!-- STICK MAN TƯƠNG TÁC BÊN HỘP QUÀ -->
+<div class="w-48 h-48 mx-auto relative">
+<svg class="w-full h-full" fill="none" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" viewbox="0 0 200 200">
+<!-- Nền hộp quà rực rỡ -->
+<rect fill="#FDCB6E" height="60" rx="8" stroke="#FFF6D1" stroke-width="3" width="70" x="65" y="110"></rect>
+<!-- Nắp hộp quà -->
+<rect fill="#FFEAA7" height="16" rx="4" stroke="#FFF6D1" stroke-width="3" width="84" x="58" y="98"></rect>
+<!-- Dây ruy băng đỏ -->
+<line stroke="#FF7675" stroke-width="6" x1="100" x2="100" y1="98" y2="170"></line>
+<!-- Chiếc nơ trên nắp -->
+<path d="M100 98 C85 85, 75 90, 85 98 C95 102, 100 98, 100 98 Z" fill="#FF7675" stroke="#FF7675"></path>
+<path d="M100 98 C115 85, 125 90, 115 98 C105 102, 100 98, 100 98 Z" fill="#FF7675" stroke="#FF7675"></path>
+<!-- Stickman đứng nhảy múa bên hộp quà -->
+<circle cx="40" cy="90" fill="#12182c" r="14"></circle>
+<path d="M34 88 Q37 84 40 88" stroke="#FFEAA7" stroke-width="2"></path>
+<path d="M42 88 Q45 84 48 88" stroke="#FFEAA7" stroke-width="2"></path>
+<path d="M36 94 Q40 98 44 94" stroke="#FFEAA7" stroke-width="2"></path>
+<!-- Thân & tay chỉ vào hộp quà -->
+<line x1="40" x2="40" y1="104" y2="140"></line>
+<line x1="40" x2="62" y1="112" y2="105"></line> <!-- Tay chỉ vào quà -->
+<line x1="40" x2="22" y1="112" y2="98"></line>
+<!-- Chân đứng nhón -->
+<line x1="40" x2="28" y1="140" y2="170"></line>
+<line x1="40" x2="48" y1="140" y2="170"></line>
+<!-- Dấu hỏi / Chữ Open Me -->
+<text fill="#FFEAA7" font-family="'Caveat', cursive" font-size="22" font-weight="bold" text-anchor="middle" x="100" y="80">Mở Em Ra Đi!</text>
+</svg>
+</div>
+<div class="mt-2 text-moon-gold font-handwriting text-2xl font-bold">
+            🎁 Chạm để xem điều bất ngờ
+          </div>
+</button>
+</div>
+<!-- MODAL BẬT LÊN KHI MỞ QUÀ -->
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-all duration-300" id="giftModal">
+<div class="relative w-full max-w-lg bg-gradient-to-b from-[#1a213d] to-[#0c1022] border-2 border-moon-gold/60 rounded-3xl p-8 text-center shadow-[0_0_80px_rgba(253,203,110,0.4)] transform scale-90 transition-transform duration-300">
+<button class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-full hover:bg-white/10" id="closeModalBtn">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<!-- Icon Vương miện cho bạn gái -->
+<div class="w-20 h-20 mx-auto rounded-full bg-amber-400/20 border border-amber-300/40 flex items-center justify-center text-4xl mb-4 animate-bounce" id="giftTicketIcon">
+            👑
+          </div>
+<h3 class="text-3xl font-extrabold text-moon-light font-handwriting" id="giftTicketTitle">
+            Tấm Vé Quyền Lực Tuổi 27!
+          </h3>
+<!-- THAY_NOI_DUNG_QUA_TANG_TAI_DAY -->
+<div class="mt-4 p-5 rounded-2xl bg-white/5 border border-white/10 text-slate-200 text-sm sm:text-base leading-relaxed text-left space-y-3" id="giftTicketBody">
+<p class="font-bold text-moon-gold text-center">✨ PHIẾU BẢO HÀNH YÊU THƯƠNG TRỌN ĐỜI ✨</p>
+<p>1. <strong>Đặc quyền 1:</strong> Bạn trai nhận nấu ăn, rửa bát và massage lưng bất cứ khi nào em mệt.</p>
+<p>2. <strong>Đặc quyền 2:</strong> Một chuyến du lịch ngắm trăng hoặc biển xanh theo sở thích của em.</p>
+<p>3. <strong>Đặc quyền 3:</strong> Vô điều kiện nhường em thắng trong mọi cuộc tranh luận vui vẻ!</p>
+</div>
+<button class="mt-6 w-full py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-yellow-500 text-night-deep font-bold text-sm tracking-wider hover:scale-105 active:scale-95 transition-all shadow-lg" id="claimGiftBtn">
+            Em Đồng Ý Nhận Quà Này! ❤️
+          </button>
+<div class="hidden" id="giftSurprise">
+<p class="font-handwriting text-5xl text-moon-gold">Bất ngờ chưa hehe</p>
+<img alt="Bất ngờ" class="mt-4 mx-auto max-h-80 w-full rounded-2xl object-cover" src="/sinh-nhat/bat-ngo.png"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- FOOTER: LỜI KẾT NGỌT NGÀO                  -->
+<!-- ========================================== -->
+<footer class="py-12 px-4 border-t border-white/10 relative z-10 text-center">
+<div class="max-w-2xl mx-auto space-y-3">
+<div class="flex items-center justify-center gap-2 text-moon-gold font-handwriting text-3xl">
+<span>Trăng Rằm Tỏa Sáng</span>
+<span>•</span>
+<span>Tuổi 27 Rực Rỡ</span>
+</div>
+<p class="text-xs text-slate-400 font-mono">
+        Made with infinite love for my beloved Libra girl (24/09/1999) 🌕✨
+      </p>
+<div class="text-[11px] text-slate-600">
+        © Thiết kế tương tác Stick Man UI • Độc quyền dành cho em
+      </div>
+</div>
+</footer>
+<!-- ======================================================= -->
+<!-- JAVASCRIPT: HIỆU ỨNG TƯƠNG TÁC, CANVAS VÀ PHÁT NHẠC      -->
+<!-- ======================================================= -->
+<script>
+    /* ====================================================
+     * 1. HỆ THỐNG CANVAS VẼ TRỜI SAO & PHÁO HOA NHẤP NHÁY
+     * ==================================================== */
+    const canvas = document.getElementById('skyCanvas');
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let stars = [];
+    let fireworks = [];
+
+    function resizeCanvas() {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initStars();
+    }
+
+    function initStars() {
+      stars = [];
+      const numStars = Math.floor((width * height) / 4200);
+      for (let i = 0; i < numStars; i++) {
+        stars.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          radius: Math.random() * 1.8 + 0.7,
+          alpha: Math.random() * 0.55 + 0.4,
+          speed: Math.random() * 0.02 + 0.005
+        });
+      }
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    // Hạt pháo hoa ngôi sao
+    class FireworkParticle {
+      constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        const angle = Math.random() * Math.PI * 2;
+        const speed = Math.random() * 5 + 2;
+        this.vx = Math.cos(angle) * speed;
+        this.vy = Math.sin(angle) * speed;
+        this.alpha = 1;
+        this.decay = Math.random() * 0.02 + 0.015;
+        this.size = Math.random() * 3 + 2;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        this.vy += 0.08; // trọng lực nhẹ
+        this.alpha -= this.decay;
+      }
+
+      draw(ctx) {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = this.color;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function createFirework(x, y) {
+      const colors = ['#FFEAA7', '#FDCB6E', '#FF7675', '#FD79A8', '#FFFDF0', '#55EFC4'];
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      for (let i = 0; i < 40; i++) {
+        fireworks.push(new FireworkParticle(x, y, color));
+      }
+    }
+
+    function renderSky() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Vẽ sao nhấp nháy
+      stars.forEach(star => {
+        star.alpha += star.speed;
+        if (star.alpha > 1 || star.alpha < 0.2) star.speed = -star.speed;
+        ctx.save();
+        ctx.globalAlpha = star.alpha;
+        ctx.fillStyle = '#FFEAA7';
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+
+      // Cập nhật pháo hoa
+      for (let i = fireworks.length - 1; i >= 0; i--) {
+        fireworks[i].update();
+        fireworks[i].draw(ctx);
+        if (fireworks[i].alpha <= 0) {
+          fireworks.splice(i, 1);
+        }
+      }
+
+      requestAnimationFrame(renderSky);
+    }
+    renderSky();
+
+    /* ====================================================
+     * 2. TƯƠNG TÁC CLICK THẢ TRÁI TIM BAY (HEART BURST)
+     * ==================================================== */
+    window.addEventListener('click', (e) => {
+      // Không tạo tim khi click vào nút hoặc modal
+      if (e.target.closest('button') || e.target.closest('a') || e.target.closest('#giftModal')) return;
+
+      const heart = document.createElement('div');
+      heart.className = 'floating-heart text-2xl select-none';
+      heart.style.left = `${e.clientX}px`;
+      heart.style.top = `${e.clientY}px`;
+      
+      const icons = ['🌕', '💛', '✨', '💖', '♎', '🌙'];
+      heart.innerText = icons[Math.floor(Math.random() * icons.length)];
+      
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1200);
+    });
+
+    /* ====================================================
+     * 3. NÚT TẶNG EM MUÔN VÌ SAO (BẮN PHÁO HOA LIÊN HOÀN)
+     * ==================================================== */
+    const confettiBtn = document.getElementById('confettiBtn');
+    if (confettiBtn) {
+      confettiBtn.addEventListener('click', () => {
+        for (let i = 0; i < 5; i++) {
+          setTimeout(() => {
+            const rx = Math.random() * (width * 0.7) + (width * 0.15);
+            const ry = Math.random() * (height * 0.5) + 100;
+            createFirework(rx, ry);
+          }, i * 200);
+        }
+      });
+    }
+
+    /* ====================================================
+     * 4. TRÌNH PHÁT NHẠC NỀN (AUDIO TOGGLE CONTROLLER)
+     * ==================================================== */
+    const musicBtn = document.getElementById('musicToggleBtn');
+    const audio = document.getElementById('bgAudio');
+    const pulseRing = document.getElementById('musicPulseRing');
+    let isPlaying = false;
+    let wantsMusic = true;
+    audio.volume = 0.45;
+
+    function markMusicOn() {
+      isPlaying = true;
+      pulseRing.classList.remove('opacity-0');
+      musicBtn.classList.add('border-amber-400');
+    }
+
+    function startMusic() {
+      if (!wantsMusic) return;
+      audio.play().then(markMusicOn).catch(() => {});
+    }
+
+    musicBtn.addEventListener('click', () => {
+      if (!isPlaying) {
+        wantsMusic = true;
+        startMusic();
+      } else {
+        wantsMusic = false;
+        audio.pause();
+        isPlaying = false;
+        pulseRing.classList.add('opacity-0');
+        musicBtn.classList.remove('border-amber-400');
+      }
+    });
+
+    startMusic();
+    window.addEventListener('pointerdown', startMusic);
+
+    /* ====================================================
+     * 5. HỘP QUÀ BÍ MẬT & MODAL TƯƠNG TÁC
+     * ==================================================== */
+    const giftBoxBtn = document.getElementById('giftBoxBtn');
+    const giftModal = document.getElementById('giftModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const claimGiftBtn = document.getElementById('claimGiftBtn');
+
+    function openGiftModal() {
+      giftModal.classList.remove('opacity-0', 'pointer-events-none');
+      giftModal.querySelector('div').classList.remove('scale-90');
+      giftModal.querySelector('div').classList.add('scale-100');
+      // Bắn pháo hoa ăn mừng khi mở hộp quà
+      createFirework(window.innerWidth / 2, window.innerHeight / 2);
+    }
+
+    function closeGiftModal() {
+      giftModal.classList.add('opacity-0', 'pointer-events-none');
+      giftModal.querySelector('div').classList.remove('scale-100');
+      giftModal.querySelector('div').classList.add('scale-90');
+    }
+
+    giftBoxBtn.addEventListener('click', openGiftModal);
+    closeModalBtn.addEventListener('click', closeGiftModal);
+    const giftSurprise = document.getElementById('giftSurprise');
+    const giftTicketParts = ['giftTicketIcon', 'giftTicketTitle', 'giftTicketBody', 'claimGiftBtn']
+      .map((id) => document.getElementById(id));
+
+    function resetGiftTicket() {
+      giftSurprise.classList.add('hidden');
+      giftTicketParts.forEach((part) => part.classList.remove('hidden'));
+    }
+
+    claimGiftBtn.addEventListener('click', () => {
+      giftTicketParts.forEach((part) => part.classList.add('hidden'));
+      giftSurprise.classList.remove('hidden');
+      window.setTimeout(() => {
+        closeGiftModal();
+        window.setTimeout(resetGiftTicket, 300);
+      }, 2600);
+    });
+
+    /* ====================================================
+     * 6. HIỆU ỨNG GỬI 27000 NỤ HÔN
+     * ==================================================== */
+    /*
+      THÊM ẢNH / VIDEO TẠI ĐÂY
+      type: "image" hoặc "video"
+      src: đường dẫn file trong public/sinh-nhat/ hoặc link https
+      video có thể thêm poster: "ảnh bìa khi chưa phát"
+    */
+    const MEMORIES = [
+      { type: "image", src: "/sinh-nhat/memories/photo-01.jpg", badge: "✨ Nụ cười tỏa nắng", index: "01", title: "Lần Đầu Ngắm Trăng Cùng Nhau", body: "Đêm ấy gió nhẹ, trăng tròn vằng vặc trên cao, nhưng với anh khoảnh khắc đẹp nhất là khi em quay sang mỉm cười.", place: "Hà Nội • Thu êm đềm", tag: "♥ Sweetest" },
+      { type: "image", src: "/sinh-nhat/memories/photo-02.jpg", badge: "♎ Libra Queen", index: "02", title: "Cô Gái Thiên Bình Dịu Dàng", body: "Ở em có sự khéo léo, công bằng và tình cảm chân thành khiến bất cứ ai tiếp xúc cũng cảm thấy nhẹ lòng và quý mến.", place: "Cà phê góc phố quen", tag: "♥ Love You" },
+      { type: "image", src: "/sinh-nhat/memories/photo-03.jpg", badge: "✨ Đồng hành", index: "03", title: "Nắm Tay Qua Năm Tháng", body: "Tuổi 27 rồi 28, rồi 30 hay nhiều năm sau nữa, mong rằng vầng trăng tình yêu của chúng ta vẫn luôn tròn vẹn thế này.", place: "Bên nhau mãi mãi", tag: "♥ Forever" },
+      { type: "image", src: "/sinh-nhat/memories/photo-04.jpg", badge: "💛 Bên nhau", index: "04", title: "Một khoảnh khắc của hai đứa", body: "Anh giữ lại tấm này vì nụ cười của em hôm ấy.", place: "Kỷ niệm của mình", tag: "♥ Ours" },
+      { type: "image", src: "/sinh-nhat/memories/photo-05.jpg", badge: "🌙 Ánh trăng", index: "05", title: "Ngày mình ở cạnh nhau", body: "Có em là đủ ấm, dù chỉ là một buổi bình thường.", place: "Kỷ niệm của mình", tag: "♥ Ours" },
+      { type: "image", src: "/sinh-nhat/memories/photo-06.jpg", badge: "✨ Ngọt ngào", index: "06", title: "Nụ cười anh không quên", body: "Mỗi lần xem lại, anh vẫn thấy ngày ấy gần như mới hôm qua.", place: "Kỷ niệm của mình", tag: "♥ Ours" },
+      { type: "image", src: "/sinh-nhat/memories/photo-07.jpg", badge: "💛 Yêu em", index: "07", title: "Giữ em trong ngày thường", body: "Những tấm hình nhỏ này là cách anh nhớ em.", place: "Kỷ niệm của mình", tag: "♥ Ours" },
+      { type: "image", src: "/sinh-nhat/memories/photo-08.jpg", badge: "♎ Thiên Bình", index: "08", title: "Em trong mắt anh", body: "Dịu dàng, rõ ràng, và rất đáng yêu.", place: "Kỷ niệm của mình", tag: "♥ Ours" },
+      { type: "image", src: "/sinh-nhat/memories/photo-09.jpg", badge: "✨ Tuổi 27", index: "09", title: "Thêm một năm bên em", body: "Anh muốn những năm sau vẫn có những tấm hình như thế này.", place: "Kỷ niệm của mình", tag: "♥ Ours" },
+      { type: "image", src: "/sinh-nhat/memories/photo-10.jpg", badge: "💛 Mình", index: "10", title: "Hai đứa mình", body: "Không cần hoàn hảo, chỉ cần có nhau trong khung hình.", place: "Kỷ niệm của mình", tag: "♥ Ours" },
+      { type: "image", src: "/sinh-nhat/memories/photo-11.jpg", badge: "🌙 Mãi bên em", index: "11", title: "Tấm anh giấu để dành", body: "Xem lại là thấy muốn ôm em ngay.", place: "Kỷ niệm của mình", tag: "♥ Ours" },
+      { type: "video", src: "/sinh-nhat/memories/video-01.mp4", poster: "/sinh-nhat/memories/photo-01.jpg", badge: "▶ Video", index: "12", title: "Chuyển động của ngày ấy", body: "Bấm phát để nghe và thấy lại khoảnh khắc này.", place: "Video của mình", tag: "♥ Play" },
+      { type: "video", src: "/sinh-nhat/memories/video-02.mp4", poster: "/sinh-nhat/memories/photo-02.jpg", badge: "▶ Video", index: "13", title: "Thêm một đoạn anh giữ", body: "Em xem hết nhé, anh để dành riêng trang này.", place: "Video của mình", tag: "♥ Play" }
+    ];
+
+    const memoryTrack = document.getElementById("memoryTrack");
+    const memoryDots = document.getElementById("memoryDots");
+    let memoryIndex = 0;
+
+    function memoryMedia(item) {
+      if (item.type === "video") {
+        const poster = item.poster ? ` poster="${item.poster}"` : "";
+        return `<video src="${item.src}"${poster} controls playsinline></video>`;
+      }
+      return `<img src="${item.src}" alt="${item.title}"/>`;
+    }
+
+    function renderMemories() {
+      memoryTrack.innerHTML = MEMORIES.map((item) => `
+        <article class="memory-slide">
+          <div class="memory-card">
+            <div class="memory-media">
+              ${memoryMedia(item)}
+              <div class="memory-badge">${item.badge}</div>
+            </div>
+            <div style="padding: 16px 8px 4px;">
+              <div class="memory-kicker">${item.index}</div>
+              <h3>${item.title}</h3>
+              <p>${item.body}</p>
+              <div class="memory-foot"><span>${item.place}</span><span>${item.tag}</span></div>
+            </div>
+          </div>
+        </article>
+      `).join("");
+      memoryDots.innerHTML = MEMORIES.map((_, index) => `
+        <button type="button" class="${index === memoryIndex ? "is-active" : ""}" aria-label="Kỷ niệm ${index + 1}" data-index="${index}"></button>
+      `).join("");
+    }
+
+    function memoryPerView() {
+      return window.matchMedia("(min-width: 1024px)").matches ? 3 : 1;
+    }
+
+    function showMemory(index) {
+      const visible = memoryPerView();
+      const maxIndex = Math.max(0, MEMORIES.length - visible);
+      memoryIndex = Math.min(Math.max(index, 0), maxIndex);
+      memoryTrack.querySelectorAll(".memory-slide").forEach((slide) => {
+        slide.style.minWidth = `${100 / visible}%`;
+      });
+      memoryTrack.style.transform = `translateX(-${memoryIndex * (100 / visible)}%)`;
+      memoryTrack.querySelectorAll("video").forEach((video) => video.pause());
+      memoryDots.querySelectorAll("button").forEach((dot, dotIndex) => {
+        dot.classList.toggle("is-active", dotIndex === memoryIndex);
+      });
+    }
+
+    renderMemories();
+    showMemory(0);
+    window.addEventListener("resize", () => showMemory(memoryIndex));
+    document.getElementById("memoryPrev").addEventListener("click", () => showMemory(memoryIndex - 1));
+    document.getElementById("memoryNext").addEventListener("click", () => showMemory(memoryIndex + 1));
+    memoryDots.addEventListener("click", (event) => {
+      const dot = event.target.closest("button");
+      if (!dot) return;
+      showMemory(Number(dot.dataset.index));
+    });
+
+    function triggerKissEffect() {
+      for (let i = 0; i < 27; i++) {
+        setTimeout(() => {
+          const kiss = document.createElement('div');
+          kiss.className = 'floating-heart text-3xl select-none';
+          kiss.style.left = `${Math.random() * window.innerWidth}px`;
+          kiss.style.top = `${Math.random() * (window.innerHeight * 0.7) + 200}px`;
+          kiss.innerText = Math.random() > 0.5 ? '💋' : '💖';
+          document.body.appendChild(kiss);
+          setTimeout(() => kiss.remove(), 1200);
+        }, i * 60);
+      }
+    }
+  </script>
+</body>
+</html>
